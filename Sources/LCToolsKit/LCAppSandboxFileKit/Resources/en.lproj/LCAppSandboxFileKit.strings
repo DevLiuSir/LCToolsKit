@@ -1,0 +1,16 @@
+
+/*
+  Localizable.strings
+  
+
+  Created by Liu Chuan on 2022/1/17.
+  
+*/
+
+
+"alert.button.allow" = "Allow";
+"alert.button.access" = "Allow Access";
+
+"alert.title" = "%@ requires access to this path to continue. Please click Allow.";
+"alert.messages" = "%@ needs to access this path to continue. Click Allow to continue.";
+
