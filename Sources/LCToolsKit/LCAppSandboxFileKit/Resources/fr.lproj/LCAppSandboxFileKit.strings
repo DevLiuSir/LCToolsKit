@@ -1,0 +1,14 @@
+
+/*
+  Localizable.strings
+  
+
+  Created by Liu Chuan on 2022/1/17.
+  
+*/
+
+"alert.button.allow" = "Autoriser";
+"alert.button.access" = "Accès autorisé";
+
+"alert.title" = "%@ nécessite l'accès à ce chemin. Veuillez autoriser.";
+"alert.messages" = "%@ a besoin d'accéder à ce chemin. Veuillez autoriser.";

@@ -1,0 +1,15 @@
+
+/*
+  Localizable.strings
+  
+
+  Created by Liu Chuan on 2022/1/17.
+  
+*/
+
+
+"alert.button.allow" = "許可する";
+"alert.button.access" = "アクセスを許可する";
+
+"alert.title" = "%@ はこのパスへのアクセスが必要です。続行するには許可してください。";
+"alert.messages" = "%@ はこのパスへのアクセスが必要です。続行するには許可してください。";
