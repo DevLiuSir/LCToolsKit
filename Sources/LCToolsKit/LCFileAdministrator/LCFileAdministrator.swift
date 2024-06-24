@@ -9,6 +9,9 @@ import Foundation
 import CryptoKit
 
 
+// LCFileAdministrator 类在 macOS 10.15 及更高版本上可用
+
+@available(macOS 10.15, *)
 /// 文件管理器
 public class LCFileAdministrator {
     
