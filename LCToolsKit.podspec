@@ -66,7 +66,7 @@ Pod::Spec.new do |spec|
 
   spec.swift_versions = ['5.0']
   spec.platform = :osx
-  spec.osx.deployment_target = "10.13"
+  spec.osx.deployment_target = "10.15"
 
 
   # spec.platform     = :ios
@@ -141,7 +141,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCFileAdministrator' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCFileAdministrator/*.swift'
   end
-  
+
   spec.subspec 'LCSpeechManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
   end
