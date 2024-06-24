@@ -7,11 +7,9 @@
 
 import Foundation
 import CryptoKit
+import CommonCrypto
 
 
-// LCFileAdministrator 类在 macOS 10.15 及更高版本上可用
-
-@available(macOS 10.15, *)
 /// 文件管理器
 public class LCFileAdministrator {
     
@@ -48,10 +46,14 @@ public class LCFileAdministrator {
         guard let fileData = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return nil
         }
-        
-        let hash = SHA256.hash(data: fileData)
-        
-        return hash.map { String(format: "%02hhx", $0) }.joined()
+        if #available(macOS 10.15, *) {
+            let hash = SHA256.hash(data: fileData)
+            return hash.compactMap { String(format: "%02x", $0) }.joined()
+        } else {
+            // Fallback on earlier versions
+            // 如果不支持 CryptoKit 中的 SHA256，则可以使用其他方式进行哈希计算
+            return sha256FallbackHash(for: fileData)
+        }
     }
     
     /// 获取`指定文件`的`修改时间`
@@ -76,6 +78,18 @@ public class LCFileAdministrator {
             print("Error getting attributes for file at path \(path): \(error)")
             return nil
         }
+    }
+    
+    
+    /// 在不支持 CryptoKit SHA256 的系统版本上使用的替代哈希算法
+    static private func sha256FallbackHash(for data: Data) -> String? {
+        // 这里可以实现其他的哈希算法，例如 CommonCrypto 等
+        // 这里只是一个示例，可以根据具体情况选择更适合的替代方案
+        var digest = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
+        data.withUnsafeBytes {
+            _ = CC_SHA256($0.baseAddress, CC_LONG(data.count), &digest)
+        }
+        return digest.map { String(format: "%02x", $0) }.joined()
     }
     
 }
