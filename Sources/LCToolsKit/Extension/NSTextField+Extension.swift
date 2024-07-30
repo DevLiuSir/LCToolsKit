@@ -1,11 +1,7 @@
 //
 //  NSTextField+Extension.swift
-//  iFanControl
 //
 //  Created by Liu Chuan on 2023/11/21.
-//
-//  Copyright Ningbo Shangguan Technology Co.,Ltd. All Rights Reserved.
-//  宁波上官科技有限公司版权所有，保留一切权利。
 //
     
 
@@ -15,7 +11,7 @@ import Cocoa
 /*
  扩展 NSTextField， 添加一个方法，来限制文字自动调整宽度，解决文字跳动的问题
  */
-extension NSTextField {
+public extension NSTextField {
     
     /// 调整文本的间距、禁用自动调整文本的宽度，以防止文字跳动。
     /// - Parameter ofSize: 字体的大小，用于设置文本的字体。

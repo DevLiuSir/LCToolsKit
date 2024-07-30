@@ -1,6 +1,5 @@
 //
 //  NSColor+Extension.swift
-//  LCShortcutDemo
 //
 //  Created by Liu Chuan on 2024/7/30.
 //
@@ -9,7 +8,7 @@ import AppKit
 
 
 // 扩展颜色
-extension NSColor {
+public extension NSColor {
     
     /// 控件强调颜色
     /// - Returns: 控件强调颜色

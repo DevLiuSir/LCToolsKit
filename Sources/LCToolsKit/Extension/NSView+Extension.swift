@@ -1,6 +1,5 @@
 //
 //  NSView+Extension.swift
-//  LCShortcutDemo
 //
 //  Created by Liu Chuan on 2024/7/30.
 //
@@ -12,7 +11,7 @@ import Cocoa
  扩展 NSView， 添加图层动画
  */
 
-extension NSView {
+public extension NSView {
     
     /// 旋转图层 （360度，无限循环）
     /// - Parameter duration: 旋转一周所需的时长
@@ -111,7 +110,7 @@ extension NSView {
 
 
 //MARK: - 指定《逆时针、顺时针、旋转多少度》
-extension NSView {
+public extension NSView {
     
     /// 开始旋转动画
     ///
@@ -172,7 +171,7 @@ extension NSView {
 
 
 //MARK: - 视图的 渐显 和 渐隐 动画效果
-extension NSView {
+public extension NSView {
  
     /// 切换`渐隐动画`的可见性
     ///
@@ -231,7 +230,7 @@ extension NSView {
 
 
 //MARK: 设置指定角为圆角
-extension NSView {
+public extension NSView {
     
     // 设置视图的指定角为圆角
     // - Parameters:
