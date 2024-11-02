@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.0.5"
+  spec.version      = "1.0.6"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
 
   # This description is used to generate tags and improve search results.
