@@ -6,9 +6,6 @@
   
 */
 
-"alert.button.allow" = "允许";
-"alert.button.access" = "同意授权";
 
-"alert.title" = "%@ 需要访问此路径才能继续，请点击允许继续.";
-"alert.messages" = "%@ 需要访问此路径才能继续。请点击同意继续.";
-
+"alert.title" = "%@ 需要访问此路径才能继续，请点击授权.";
+"alert.button.allow" = "授权";

@@ -7,8 +7,6 @@
   
 */
 
-"alert.button.allow" = "Autoriser";
-"alert.button.access" = "Accès autorisé";
+"alert.title" = "%@ doit accéder à ce chemin pour continuer. Veuillez cliquer sur autoriser.";   // French
+"alert.button.allow" = "Autoriser";   // French
 
-"alert.title" = "%@ nécessite l'accès à ce chemin. Veuillez autoriser.";
-"alert.messages" = "%@ a besoin d'accéder à ce chemin. Veuillez autoriser.";

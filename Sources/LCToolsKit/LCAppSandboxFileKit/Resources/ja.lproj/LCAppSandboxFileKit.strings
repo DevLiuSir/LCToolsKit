@@ -7,9 +7,5 @@
   
 */
 
-
-"alert.button.allow" = "許可する";
-"alert.button.access" = "アクセスを許可する";
-
-"alert.title" = "%@ はこのパスへのアクセスが必要です。続行するには許可してください。";
-"alert.messages" = "%@ はこのパスへのアクセスが必要です。続行するには許可してください。";
+"alert.title" = "%@ はこのパスにアクセスする必要があります。許可をクリックしてください。";   // Japanese
+"alert.button.allow" = "許可";   // Japanese

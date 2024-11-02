@@ -7,9 +7,5 @@
   
 */
 
-
-"alert.button.allow" = "허용";
-"alert.button.access" = "접근 허용";
-
-"alert.title" = "%@ 경로에 접근해야 계속할 수 있습니다. 허용을 클릭하세요.";
-"alert.messages" = "%@ 이(가) 계속하려면 이 경로에 접근해야 합니다. 허용을 클릭하세요.";
+"alert.title" = "%@이 이 경로에 액세스해야 계속할 수 있습니다. 허용을 클릭하십시오.";   // Korean
+"alert.button.allow" = "허용";   // Korean

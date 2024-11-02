@@ -7,8 +7,5 @@
   
 */
 
-"alert.button.allow" = "Erlauben";
-"alert.button.access" = "Zugriff erlauben";
-
-"alert.title" = "%@ benötigt Zugriff auf diesen Pfad, um fortzufahren. Bitte erlauben Sie.";
-"alert.messages" = "%@ benötigt Zugriff auf diesen Pfad, um fortzufahren. Bitte erlauben Sie.";
+"alert.title" = "%@ benötigt Zugriff auf diesen Pfad, um fortzufahren. Bitte klicken Sie auf Erlauben.";   // German
+"alert.button.allow" = "Erlauben";   // German

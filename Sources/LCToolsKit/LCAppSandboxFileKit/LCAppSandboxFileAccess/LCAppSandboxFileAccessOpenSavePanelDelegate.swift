@@ -2,7 +2,7 @@
 //  LCAppSandboxFileAccessOpenSavePanelDelegate.swift
 //  IPSWLibrary
 //
-//  Created by Liu Chuan on 2019/12/20.
+//  Created by DevLiuSir on 2019/12/20.
 //
 
 
@@ -14,14 +14,23 @@ class LCAppSandboxFileAccessOpenSavePanelDelegate: NSObject, NSOpenSavePanelDele
     /// 文件URL的路径组件
     var pathComponents: [String]
 
+    /// 是否允许选择目录，默认为 `false`
+    /// 当为 `true` 时，用户可以选择目录；当为 `false` 时，用户只能选择文件。
+    var canChooseDirectories: Bool = false
+
     /// 初始化方法
     /// - Parameter fileURL: 要处理的文件URL
-    init(fileURL: URL) {
+    /// - Parameter canChooseDirectories: 是否允许选择目录
+    /// 初始化方法用于创建一个 `LCAppSandboxFileAccess` 实例并设置其属性。
+    init(fileURL: URL, canChooseDirectories: Bool) {
         // 确保fileURL参数不为nil
         precondition(fileURL.absoluteString.isEmpty == false, "fileURL must not be nil")
         
         // 使用文件URL的路径组件初始化pathComponents属性
         self.pathComponents = fileURL.pathComponents
+        
+        // 设置是否允许选择目录
+        self.canChooseDirectories = canChooseDirectories
     }
     
     
@@ -46,7 +55,7 @@ class LCAppSandboxFileAccessOpenSavePanelDelegate: NSObject, NSOpenSavePanelDele
         
         // 如果传入的URL的路径组件数量多于self.url的路径组件数量，允许选择，表示选择的是self.url的子文件或子文件夹
         if otherPathComponents.count > pathComponents.count {
-            return true     // true: 允许 选择文件夹  false：不允许选择文件夹
+            return canChooseDirectories    // true: 允许 选择文件夹  false：不允许选择文件夹
         }
         
         // 遍历传入的URL的每个路径组件，与self.url的相应组件进行比较
