@@ -44,7 +44,7 @@ func LCFileAccessLocalizeString(_ key: String) -> String {
 
 
 /// 应用程序的显示名称
-fileprivate let kAPP_Name: String = {
+fileprivate let KApplicationName: String = {
     // 获取主应用程序的 Bundle
     let mainBundle = Bundle.main
     
@@ -87,7 +87,7 @@ class LCAppSandboxFileAccess {
     init() {
         title = LCFileAccessLocalizeString("alert.title")
         prompt = LCFileAccessLocalizeString("alert.button.allow")
-        message = String(format: title, arguments: [kAPP_Name])
+        message = String(format: title, arguments: [KApplicationName])
     }
     
     
