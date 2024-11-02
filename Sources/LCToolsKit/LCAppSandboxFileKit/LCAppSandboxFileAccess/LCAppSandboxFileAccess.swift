@@ -44,7 +44,7 @@ func LCFileAccessLocalizeString(_ key: String) -> String {
 
 
 /// 应用程序的显示名称
-let kAPP_Name: String = {
+fileprivate let kAPP_Name: String = {
     // 获取主应用程序的 Bundle
     let mainBundle = Bundle.main
     
