@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.0.6"
+  spec.version      = "1.0.7"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
 
   # This description is used to generate tags and improve search results.
@@ -106,7 +106,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'LCAppSandboxFileKit' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/LCAppSandboxFileAccess/*.swift'
+  ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/LCAppSandboxFileAccess/**/*.swift'
   ss.resource     = 'Sources/LCToolsKit/LCAppSandboxFileKit/Resources/*'
 
   #  ss.resource_bundle = {
@@ -117,14 +117,20 @@ Pod::Spec.new do |spec|
   end
 
 
-  # spec.subspec 'LCAppleScriptManager' do |ss|
-  # ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/*.swift'
-  # ss.resource     = 'Sources/LCToolsKit/LCAppleScriptManager/Resources/*'
-  # #  ss.resource_bundle = {
-  # #   'LCAppleScriptManager' => ['Sources/LCToolsKit/LCAppleScriptManager/Resources/*']
-  # # }
-  # end
-  
+  spec.subspec 'LCAppleScriptManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/Classes/**/*.swift'
+  ss.resource     = 'Sources/LCToolsKit/LCAppleScriptManager/Resources/*'
+
+  # ss.resource_bundle = {
+  #   'LCAppleScriptManager' => ['Sources/LCToolsKit/LCAppleScriptManager/Resources/*']
+  # }
+
+  end
+
+
+
+
+
   spec.subspec 'LCVolumeManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCVolumeManager/*.swift'
   end
