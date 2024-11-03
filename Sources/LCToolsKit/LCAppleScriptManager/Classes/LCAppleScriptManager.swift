@@ -220,7 +220,7 @@ public class LCAppleScriptManager {
     /// 检查`脚本文件`是否`已安装`
     /// - Parameter fileName: 要检查的脚本文件的名称
     /// - Returns: 如果文件已存在，则返回true；否则返回false
-    static func scriptFileHasInstalled(fileName: String) -> Bool {
+    public static func scriptFileHasInstalled(fileName: String) -> Bool {
        
         // 检查文件名是否为NSString类型且非空
         if !((fileName as AnyObject).isKind(of: NSString.self)) || fileName.isEmpty {

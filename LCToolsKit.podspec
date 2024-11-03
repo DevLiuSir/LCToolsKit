@@ -105,27 +105,65 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCProgressHUD/*.swift'
   end
 
-  spec.subspec 'LCAppSandboxFileKit' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/LCAppSandboxFileAccess/**/*.swift'
-  ss.resource     = 'Sources/LCToolsKit/LCAppSandboxFileKit/Resources/*'
+
+
+
+
+
+
+  # spec.subspec 'LCAppSandboxFileKit' do |ss|
+  # ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/LCAppSandboxFileAccess/**/*.swift'
+  # ss.resource     = 'Sources/LCToolsKit/LCAppSandboxFileKit/Resources/*'
 
   #  ss.resource_bundle = {
   #   'LCAppSandboxFileKit' => ['Sources/LCToolsKit/LCAppSandboxFileKit/Resources/*']
   # }
+  # end
 
 
+
+
+
+
+
+  s.subspec 'LCAppSandboxFileKit' do |ss|
+    ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/**/*.{swift}'
+    ss.resource_bundles = {
+      'LCAppSandboxFileKitResources' => 'Sources/LCToolsKit/LCAppSandboxFileKit/Resources/**/*'
+    }
+  end
+
+  s.subspec 'LCAppleScriptManager' do |ss|
+    ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/**/*.{swift}'
+    ss.resource_bundles = {
+      'LCAppleScriptManagerResources' => 'Sources/LCToolsKit/LCAppleScriptManager/Resources/**/*'
+    }
   end
 
 
-  spec.subspec 'LCAppleScriptManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/Classes/**/*.swift'
-  ss.resource     = 'Sources/LCToolsKit/LCAppleScriptManager/Resources/*'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # spec.subspec 'LCAppleScriptManager' do |ss|
+  # ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/Classes/**/*.swift'
+  # ss.resource     = 'Sources/LCToolsKit/LCAppleScriptManager/Resources/*'
 
   # ss.resource_bundle = {
   #   'LCAppleScriptManager' => ['Sources/LCToolsKit/LCAppleScriptManager/Resources/*']
   # }
-
-  end
+  # end
 
 
 
@@ -215,3 +253,16 @@ Pod::Spec.new do |spec|
   # spec.dependency "JSONKit", "~> 1.4"
 
 end
+
+
+
+# 升级时  1.add tag
+#        2.push tag
+#        3.pod trunk push LCToolsKit.podspec --allow-warnings --use-libraries
+
+#        pod spec lint LCToolsKit.podspec --use-libraries  验证podspec文件
+#        --use-libraries 有第三方库依赖，添加该参数
+
+#        pod trunk delete LCToolsKit x.x.x  删除已发布的某个版本
+
+
