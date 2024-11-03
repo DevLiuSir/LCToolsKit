@@ -14,7 +14,7 @@ import Carbon
 /// 本地化字符串的函数
 /// - Parameter key: 要本地化的字符串键
 /// - Returns: 对应的本地化字符串，如果未找到则返回原始键
-fileprivate func LCFileAccessLocalizeString(_ key: String) -> String {
+fileprivate func LCAppleScriptLocalizeString(_ key: String) -> String {
     // 使用静态变量以确保只创建一次
     var bundle: Bundle?
     var onceToken: Int = 0
@@ -81,12 +81,12 @@ public class LCAppleScriptManager {
     
     
     init() {
-        LCAppleScriptManager.alertMessages = LCFileAccessLocalizeString("appleScript.alert.messageText")
-        LCAppleScriptManager.alertInfomative = LCFileAccessLocalizeString("appleScript.alert.informativeText")
-        LCAppleScriptManager.alertInstall = LCFileAccessLocalizeString("appleScript.alert.install")
-        LCAppleScriptManager.alertCancel = LCFileAccessLocalizeString("appleScript.alert.cancel")
-        LCAppleScriptManager.panelPrompt = LCFileAccessLocalizeString("openPanel.prompt")
-        LCAppleScriptManager.panelMessage = LCFileAccessLocalizeString("openPanel.message")
+        LCAppleScriptManager.alertMessages = LCAppleScriptLocalizeString("appleScript.alert.messageText")
+        LCAppleScriptManager.alertInfomative = LCAppleScriptLocalizeString("appleScript.alert.informativeText")
+        LCAppleScriptManager.alertInstall = LCAppleScriptLocalizeString("appleScript.alert.install")
+        LCAppleScriptManager.alertCancel = LCAppleScriptLocalizeString("appleScript.alert.cancel")
+        LCAppleScriptManager.panelPrompt = LCAppleScriptLocalizeString("openPanel.prompt")
+        LCAppleScriptManager.panelMessage = LCAppleScriptLocalizeString("openPanel.message")
     }
     
     
