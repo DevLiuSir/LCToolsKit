@@ -125,20 +125,20 @@ Pod::Spec.new do |spec|
 
 
 
-
-  s.subspec 'LCAppSandboxFileKit' do |ss|
-    ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/**/*.{swift}'
-    ss.resource_bundles = {
-      'LCAppSandboxFileKitResources' => 'Sources/LCToolsKit/LCAppSandboxFileKit/Resources/**/*'
-    }
+  spec.subspec 'LCAppSandboxFileKit' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppSandboxFileKit/**/*.{swift}'
+    ss.resource_bundle = {
+      'LCAppSandboxFileKitResources' => ['Sources/LCToolsKit/LCAppSandboxFileKit/Resources/*']
+  }
   end
 
-  s.subspec 'LCAppleScriptManager' do |ss|
-    ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/**/*.{swift}'
-    ss.resource_bundles = {
-      'LCAppleScriptManagerResources' => 'Sources/LCToolsKit/LCAppleScriptManager/Resources/**/*'
-    }
+  spec.subspec 'LCAppleScriptManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppleScriptManager/**/*.{swift}'
+    ss.resource_bundle = {
+      'LCAppleScriptManagerResources' => ['Sources/LCToolsKit/LCAppleScriptManager/Resources/*']
+  }
   end
+
 
 
 
