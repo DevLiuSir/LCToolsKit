@@ -1,0 +1,18 @@
+/* 
+  LCAppleScript.strings
+  LCAppleScriptManager
+
+  Created by Liu Chuan on 2024/3/13.
+  
+*/
+
+
+
+// AppleScript
+"appleScript.alert.messageText" = "Lembrete";
+"appleScript.alert.informativeText" = "Você precisa instalar o AppleScript antes de usar o Pane";
+"appleScript.alert.install" = "Instalar";
+"appleScript.alert.cancel" = "Cancelar";
+
+"openPanel.prompt" = "Instalar AppleScript";
+"openPanel.message" = "Instalar o script do AppleScript na pasta atual";

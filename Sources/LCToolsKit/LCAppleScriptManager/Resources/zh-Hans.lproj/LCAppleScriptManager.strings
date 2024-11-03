@@ -1,0 +1,16 @@
+/* 
+  LCAppleScript.strings
+  LCAppleScriptManager
+
+  Created by Liu Chuan on 2024/3/13.
+  
+*/
+
+// AppleScript
+"appleScript.alert.messageText" = "温馨提示";
+"appleScript.alert.informativeText" = "使用前，需要先安装AppleScript脚本";
+"appleScript.alert.install" = "安装";
+"appleScript.alert.cancel" = "取消";
+
+"openPanel.prompt" = "安装AppleScript脚本";
+"openPanel.message" = "在当前文件夹中安装AppleScript脚本";
