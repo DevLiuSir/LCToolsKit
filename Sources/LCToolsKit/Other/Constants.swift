@@ -5,6 +5,8 @@
 //
 
 /*-------------------- 数据类型转换 -----------------*/
+import Cocoa
+import Carbon
 
 // Int 转换为字符串
 public func stringFromInt(_ int: Int) -> String {
