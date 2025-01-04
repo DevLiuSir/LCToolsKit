@@ -21,6 +21,11 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/DevLiuSir/LCToolsKit.git", :tag => "#{spec.version}" }
 
+  
+  spec.subspec 'LCActivityIndicatorManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCActivityIndicatorManager/*.swift'
+  end
+
   spec.subspec 'LCProgressHUD' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCProgressHUD/*.swift'
   end
