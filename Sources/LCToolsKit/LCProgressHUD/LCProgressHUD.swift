@@ -343,34 +343,44 @@ public class LCProgressHUD: NSView {
             NotificationCenter.default.post(name: LCProgressHUD.didAppear, object: self)
         }
     }
+ 
     
-    
-    /// `隐藏`LCProgressHUD
+    /// 隐藏LCProgressHUD视图，支持动画效果
     private func hide(_ animated: Bool) {
-        // 发送将要消失的通知
+        // 如果已经隐藏，则不再执行
+        guard !isHidden else { return }
+
+        // 发送HUD即将消失的通知，通知其他部分准备
         NotificationCenter.default.post(name: LCProgressHUD.willDisappear, object: self)
+        
         // 设置是否使用动画
         useAnimation = animated
-        // 取消之前的所有待执行操作
+        
+        // 取消之前的所有待执行操作，避免重复触发
         NSObject.cancelPreviousPerformRequests(withTarget: self)
+
+        // 如果使用动画，则执行淡出动画
         if animated {
             // 使用淡出效果
             NSAnimationContext.beginGrouping()
+            // 设置动画时长为0.20秒
             NSAnimationContext.current.duration = 0.20
-            NSAnimationContext.current.completionHandler = {
-                // 完成隐藏后的操作
-                self.done()
+            // 动画完成后的回调，执行done()方法
+            NSAnimationContext.current.completionHandler = { [weak self] in
+                self?.done()    // 完成隐藏后的操作
             }
-            // 设置动画的透明度
+            // 设置透明度动画效果
             animator().alphaValue = 0
+            // 提交动画
             NSAnimationContext.endGrouping()
         } else {
-            // 不使用动画，直接设置透明度
+            // 如果不使用动画，直接设置透明度为0
             alphaValue = 0.0
-            // 完成隐藏后的操作
+            // 直接执行完成操作
             done()
         }
     }
+    
     
     
     /// 显示`带有进度`和`状态文本`的LCProgressHUD
@@ -383,22 +393,33 @@ public class LCProgressHUD: NSView {
         // 设置进度
         self.progress = progress
     }
-
+    
     /// 完成LCProgressHUD的显示
     private func done() {
-        progressIndicator.stopProgressAnimation()       // 停止进度动画
-        alphaValue = 0.0                    // 设置透明度为0
-        isHidden = true                  // 设置：隐藏
-        removeFromSuperview()            // 从父视图中移除
-        completionHandler?()            // 执行完成后的回调
-        indicator?.removeFromSuperview()            // 从父视图中移除指示器
-        indicator = nil                             // 释放指示器
-        statusLabel.string = ""                     // 清空状态标签
-        windowController?.close()                   // 关闭窗口控制器
-        
+        // 如果已经隐藏，则不再执行, 避免重复执行
+        guard !isHidden else { return }
+        progressIndicator.stopProgressAnimation()    // 停止进度动画
+        alphaValue = 0.0        // 设置透明度为0
+        isHidden = true         // 设置：隐藏
+        // 如果当前视图有父视图，则从父视图中移除当前视图
+        if superview != nil {
+            removeFromSuperview()
+        }
+        completionHandler?()    // 执行完成后的回调
+        // 如果指示器的父视图存在，则移除指示器
+        if indicator?.superview != nil {
+            indicator?.removeFromSuperview()
+        }
+        indicator = nil             // 释放指示器
+        statusLabel.string = ""     // 清空状态标签
+        // 如果窗口控制器的窗口可见，关闭窗口控制器
+        if windowController?.window?.isVisible == true {
+            windowController?.close()   // 关闭窗口控制器
+        }
         // 发送已经消失的通知
         NotificationCenter.default.post(name: LCProgressHUD.didDisappear, object: self)
     }
+    
     
     
     /// 设置状态
