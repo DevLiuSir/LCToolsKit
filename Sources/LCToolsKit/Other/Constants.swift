@@ -152,12 +152,6 @@ public let kBundle_id: String? = {
 }()
 
 
-/// 从应用程序的 Bundle 中获取可读的版权字符串。
-public static let copyright: String? = {
-    return Bundle.main.copyrightString
-}()
-
-
 // 系统版本号
 public let kSystem_OS_Version: String = {
     let osVersion = ProcessInfo.processInfo.operatingSystemVersion
