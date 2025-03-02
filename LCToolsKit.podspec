@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -32,6 +32,10 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCVolumeManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCVolumeManager/*.swift'
+  end
+  
+  spec.subspec 'LCURLManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCURLManager/*.swift'
   end
 
   spec.subspec 'LCDistributedNotificationManager' do |ss|
