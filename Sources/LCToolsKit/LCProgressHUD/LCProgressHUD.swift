@@ -108,6 +108,12 @@ public class LCProgressHUD: NSView {
     private class func bundleImage(_ imageName: String) -> NSImage {
         // 获取 LCProgressHUD.bundle 的 URL
         let url = Bundle.main.url(forResource: "LCProgressHUD", withExtension: "bundle")
+        if url == nil {
+            if let bundleUrl = Bundle.main.url(forResource: "Frameworks", withExtension: nil)?.appendingPathComponent("LCToolsKit").appendingPathExtension("framework"),
+               let bundle = Bundle(url: bundleUrl) {
+                url = bundle.url(forResource: "LCProgressHUD", withExtension: "bundle")
+            }
+        }
         
         // 尝试从 bundle 中构造完整的图片路径并加载图片
         guard let bundleUrl = url,
