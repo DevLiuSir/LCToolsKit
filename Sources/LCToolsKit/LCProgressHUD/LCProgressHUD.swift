@@ -2,7 +2,7 @@
 //  LCLCProgressHUD.swift
 //  LCLCProgressHUD
 //
-//  Created by Liu Chuan on 2024/3/8.
+//  Created by DevLiuSir on 2021/6/24.
 //
 
 import Cocoa
@@ -13,9 +13,11 @@ public typealias LCProgressHUDDismissCompletion = () -> Void
 
 
 public class LCProgressHUD: NSView {
-
     
     static let shared = LCProgressHUD()
+    
+    /// 存储 dismiss 结束后的回调
+    private var dismissCompletion: LCProgressHUDDismissCompletion?
 
     // MARK: - Lifecycle
     
@@ -51,7 +53,8 @@ public class LCProgressHUD: NSView {
     
     /// 设置`LCProgressHUDStyle`颜色方案（默认为.light）
     public class func setDefaultStyle(_ style: LCProgressHUDStyle) { LCProgressHUD.shared.style = style }
-    private var style: LCProgressHUDStyle = .light
+    /// 默认样式：自动
+    fileprivate var style: LCProgressHUDStyle = .auto
     
     
     /// 设置`默认遮罩类型`
@@ -61,7 +64,7 @@ public class LCProgressHUD: NSView {
     
     /// 设置`LCProgressHUDPosition`在视图中的位置（默认为.bottom）
     public class func setDefaultPosition(_ position: LCProgressHUDPosition) { LCProgressHUD.shared.position = position }
-    private var position: LCProgressHUDPosition = .bottom
+    private var position: LCProgressHUDPosition = .center
     
     /// 设置用于显示`LCProgressHUD`的容器视图。如果为nil，则将使用主屏幕。
     public class func setContainerView(_ view: NSView?) { LCProgressHUD.shared.containerView = view }
@@ -95,6 +98,27 @@ public class LCProgressHUD: NSView {
     public class func setDismissable(_ dismissable: Bool) { LCProgressHUD.shared.dismissible = dismissable }
     private var dismissible = false
     
+    
+    // MARK: - 获取 Bundle 里面的图片
+    
+    /// 从 LCProgressHUD.bundle 中加载指定名称的图片
+    ///
+    /// - Parameter imageName: 图片文件名（例如 `"success_white@2x.png"`）
+    /// - Returns: 加载的 `NSImage` 对象；如果加载失败，则返回空白 `NSImage()`
+    private class func bundleImage(_ imageName: String) -> NSImage {
+        // 获取 LCProgressHUD.bundle 的 URL
+        let url = Bundle.main.url(forResource: "LCProgressHUD", withExtension: "bundle")
+        
+        // 尝试从 bundle 中构造完整的图片路径并加载图片
+        guard let bundleUrl = url,
+              let path = Bundle(url: bundleUrl)?.bundlePath.appendingFormat("/\(imageName)"),
+              let image = NSImage(contentsOfFile: path) else {
+                  return NSImage() // 如果加载失败，返回空白图片
+              }
+        
+        return image
+    }
+    
 
     // MARK: - Presentation
     
@@ -108,6 +132,71 @@ public class LCProgressHUD: NSView {
     public class func show(withStatus status: String) {
         LCProgressHUD.shared.show(withStatus: status, mode: .indeterminate)
     }
+    
+    /// 显示`成功状态`信息
+    public class func showSuccessWithStatus(_ status: String) {
+        showStatus(status, type: .success(view: createImageView(for: "success")))
+    }
+
+    /// 显示`错误状态`信息
+    public class func showErrorWithStatus(_ status: String) {
+        showStatus(status, type: .error(view: createImageView(for: "error")))
+    }
+    
+    /// 显示`提示状态`信息
+    ///
+    /// - Parameter status: 提供的状态信息文本，将在进度HUD中显示
+    public class func showInfoWithStatus(_ status: String) {
+        showStatus(status, type: .info(view: createImageView(for: "info")))
+    }
+    
+    /// 显示`文本`信息的方法
+    ///
+    /// - Parameter status: 提供的状态信息，将在进度HUD中显示
+    public class func showTextWithStatus(_ status: String) {
+        /// 使用给定的状态信息和模式（.text）来显示进度HUD
+        LCProgressHUD.shared.show(withStatus: status, mode: .text)
+        
+        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
+        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
+    }
+
+    
+    /// 显示`图像`和`状态信息文本`方法
+    ///
+    /// - Parameters:
+    ///   - image: 提供的图像，将在进度HUD中显示
+    ///   - status: 提供的状态信息
+    public class func showImage(_ image: NSImage, status: String) {
+        /// 创建一个包含图像的视图
+        let imageView = NSImageView(frame: NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
+        imageView.image = image
+        /// 使用给定的状态信息和模式（.custom(view: imageView)）来显示进度HUD
+        LCProgressHUD.shared.show(withStatus: status, mode: .custom(view: imageView))
+        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
+        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
+    }
+    
+    
+    /// `隐藏进度HUD`的方法
+    ///
+    /// - Parameters:
+    ///   - delay: 延迟的时间间隔（以秒为单位），默认为 `0`（立即隐藏）
+    ///   - completion: `LCProgressHUD` 解除后的完成闭包（可选，默认为 `nil`）
+    public class func dismiss(delay: TimeInterval = 0, completion: LCProgressHUDDismissCompletion? = nil) {
+        let hud = LCProgressHUD.shared
+        hud.dismissCompletion = completion  // 存储 completion 回调
+
+        // 判断是否需要延迟隐藏
+        if delay > 0 {
+            // 如果 delay 大于 0，则延迟执行隐藏操作
+            hud.perform(#selector(hideDelayed(_:)), with: 1, afterDelay: delay)
+        } else {
+            hud.hide(true)             // 如果 delay 为 0，则立即隐藏
+            completion?()         // 如果提供了 completion 回调，则立即执行
+        }
+    }
+    
     
     /// 显示一个带有进度和状态的`LCProgressHUD`
     ///
@@ -130,7 +219,6 @@ public class LCProgressHUD: NSView {
     ///
     /// - Parameter status: 需要设置的状态消息
     class func setStatus(_ status: String) {
-        
         /// 如果`LCProgressHUD`当前处于隐藏状态，则不进行任何操作
         if LCProgressHUD.shared.isHidden {
             return
@@ -138,110 +226,116 @@ public class LCProgressHUD: NSView {
         LCProgressHUD.shared.setStatus(status)
     }
     
-    
-    /// 显示有`状态信息文本`
-    ///
-    /// - Parameter status: 提供的状态信息文本，将在进度HUD中显示
-    class func showInfoWithStatus(_ status: String) {
-        
-        /// 使用给定的状态信息和模式（.info）来显示进度HUD
-        LCProgressHUD.shared.show(withStatus: status, mode: .info)
-        
-        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
-        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
-    }
-    
-    /// 显示`成功状态信息`的方法
-    ///
-    /// - Parameter status: 提供的状态信息，将在进度HUD中显示
-    class func showSuccessWithStatus(_ status: String) {
-        
-        /// 使用给定的状态信息和模式（.success）来显示进度HUD
-        LCProgressHUD.shared.show(withStatus: status, mode: .success)
-        
-        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
-        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
-    }
-    
-    /// 显示`错误状态信息`的方法
-    ///
-    /// - Parameter status: 提供的状态信息，将在进度HUD中显示
-    class func showErrorWithStatus(_ status: String) {
-        /// 使用给定的状态信息和模式（.error）来显示进度HUD
-        LCProgressHUD.shared.show(withStatus: status, mode: .error)
-        
-        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
-        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
-    }
-
-    /// 显示`文本状态信息`的方法
-    ///
-    /// - Parameter status: 提供的状态信息，将在进度HUD中显示
-    class func showTextWithStatus(_ status: String) {
-        /// 使用给定的状态信息和模式（.text）来显示进度HUD
-        LCProgressHUD.shared.show(withStatus: status, mode: .text)
-        
-        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
-        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
-    }
-
-    /// 显示`图像`和`状态信息文本`方法
-    ///
-    /// - Parameters:
-    ///   - image: 提供的图像，将在进度HUD中显示
-    ///   - status: 提供的状态信息
-    public class func showImage(_ image: NSImage, status: String) {
-        /// 创建一个包含图像的视图
-        let imageView = NSImageView(frame: NSRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        imageView.image = image
-        /// 使用给定的状态信息和模式（.custom(view: imageView)）来显示进度HUD
-        LCProgressHUD.shared.show(withStatus: status, mode: .custom(view: imageView))
-        /// 在一定的延迟后消失，延迟的时间由状态信息的展示持续时间决定
-        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
-    }
-
-    /// `隐藏进度HUD`的方法
-    public class func dismiss() {
-        /// 隐藏进度HUD
-        LCProgressHUD.shared.hide(true)
-    }
-
-    /// `隐藏进度HUD`并在完成后进行`回调`的方法
-    ///
-    /// - Parameter completion: 隐藏完成后的回调
-    class func dismiss(completion: LCProgressHUDDismissCompletion?) {
-        /// 隐藏进度HUD
-        LCProgressHUD.shared.hide(true)
-        /// 执行完成后的回调
-        completion?()
-    }
-    
-    
-    /// 延迟一段时间后，如果当前可见的 `LCProgressHUD` 是可见的，则将其解除
-    ///
-    /// - Parameter delay: 延迟的时间间隔（以秒为单位）
-    public class func dismiss(delay: TimeInterval) {
-        LCProgressHUD.shared.perform(#selector(hideDelayed(_:)), with: 1, afterDelay: delay)
-    }
-
-    /// 延迟一段时间后，如果当前可见的 `LCProgressHUD` 是可见的，则将其解除，并调用完成闭包
-    ///
-    /// - Parameters:
-    ///   - delay: 延迟的时间间隔（以秒为单位）
-    ///   - completion: `LCProgressHUD` 解除后的完成闭包
-    public class func dismiss(delay: TimeInterval, completion: LCProgressHUDDismissCompletion?) {
-        LCProgressHUD.shared.perform(#selector(hideDelayed(_:)), with: 1, afterDelay: delay)
-    }
-
     /// 如果当前正在显示 `LCProgressHUD`，则返回 `true`
     ///
     /// - Returns: 如果 `LCProgressHUD` 当前正在显示，则为 `true`
     class func isVisible() -> Bool {
         return !LCProgressHUD.shared.isHidden
     }
-    
+
     
     // MARK: - Private Properties
+    
+    /// 创建一个用于状态指示的 `NSImageView`
+    ///
+    /// - Parameter type: 状态类型 (`"success"` 或 `"error"`)
+    /// - Returns: 配置好的 `NSImageView`
+    private class func createImageView(for type: String) -> NSView {
+        let currentStyle = LCProgressHUD.shared.style
+
+        // 根据当前样式获取正确的图片
+        let imageName: String
+        switch currentStyle {
+        case .dark:
+            imageName = "\(type)_white@2x.png"
+        case .light:
+            imageName = "\(type)_black@2x.png"
+        case .auto:
+            // 根据系统外观动态选择图标
+            imageName = NSApp.effectiveAppearance.name == .darkAqua ? "\(type)_white@2x.png" : "\(type)_black@2x.png"
+        case .custom:
+            imageName = "\(type)_black@2x.png" // 自定义模式默认黑色图标
+        }
+
+        // 创建并返回 `NSImageView`
+        let imageView = NSImageView(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.image = bundleImage(imageName)
+        return imageView
+    }
+    
+    
+    /// 显示`状态信息`的方法（成功/错误）
+    ///
+    /// - Parameters:
+    ///   - status: 提供的状态信息，将在进度HUD中显示
+    ///   - type: 要显示的状态类型（成功/错误）
+    private class func showStatus(_ status: String, type: LCProgressHUDMode) {
+        // 当前外观样式
+        let currentStyle = LCProgressHUD.shared.style
+        // 获取对应样式的图像
+        let image = imageForStatus(type, style: currentStyle)
+        
+        // 创建图像视图
+        let imageView = NSImageView(frame: NSRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.image = image
+        
+        // 处理 .success 和 .error 自动附加视图
+        let finalMode: LCProgressHUDMode
+        switch type {
+        case .success:
+            finalMode = .success(view: imageView)
+        case .error:
+            finalMode = .error(view: imageView)
+        case .info:
+            finalMode = .error(view: imageView)
+        default:
+            finalMode = type
+        }
+        
+        // 显示进度 HUD
+        LCProgressHUD.shared.show(withStatus: status, mode: finalMode)
+        
+        // 在一定的延迟后消失
+        LCProgressHUD.dismiss(delay: LCProgressHUD.shared.displayDuration(for: status))
+    }
+   
+    
+    /// 获取对应的状态图标
+    ///
+    /// - Parameters:
+    ///   - type: HUD 的状态类型（成功/错误）
+    ///   - style: 当前 HUD 样式
+    /// - Returns: 对应的 NSImage
+    private class func imageForStatus(_ type: LCProgressHUDMode, style: LCProgressHUDStyle) -> NSImage? {
+        let imageName: String
+        switch type {
+        case .success:
+            if style.isEqual(to: .auto) {
+                imageName = NSApp.effectiveAppearance.name == .darkAqua ? "success_white@2x.png" : "success_black@2x.png"
+            } else {
+                imageName = style.isEqual(to: .dark) ? "success_white@2x.png" : "success_black@2x.png"
+            }
+        case .error:
+            if style.isEqual(to: .auto) {
+                imageName = NSApp.effectiveAppearance.name == .darkAqua ? "error_white@2x.png" : "error_black@2x.png"
+            } else {
+                imageName = style.isEqual(to: .dark) ? "error_white@2x.png" : "error_black@2x.png"
+            }
+        case .info:
+            if style.isEqual(to: .auto) {
+                imageName = NSApp.effectiveAppearance.name == .darkAqua ? "info_white@2x.png" : "info_black@2x.png"
+            } else {
+                imageName = style.isEqual(to: .dark) ? "info_white@2x.png" : "info_black@2x.png"
+            }
+        default:
+            return nil
+        }
+        return bundleImage(imageName)
+    }
+    
+    
+    
+    
     
     /// LCProgressHUD操作模式，默认为.indeterminate
     private var mode: LCProgressHUDMode = .indeterminate
@@ -319,31 +413,30 @@ public class LCProgressHUD: NSView {
     private func show(_ animated: Bool) {
         // 发送将要出现的通知
         NotificationCenter.default.post(name: LCProgressHUD.willAppear, object: self)
+
         // 设置是否使用动画
         useAnimation = animated
         // 设置需要重绘
         needsDisplay = true
-        // 设置 不隐藏
+        // 设置不隐藏
         isHidden = false
+
         if animated {
-            // 使用淡入效果
-            NSAnimationContext.beginGrouping()
-            NSAnimationContext.current.duration = 0.20
-            NSAnimationContext.current.completionHandler = {
-                // 发送已经出现的通知
-                NotificationCenter.default.post(name: LCProgressHUD.didAppear, object: self)
+            DispatchQueue.main.async {
+                NSAnimationContext.runAnimationGroup({ context in
+                    context.duration = 0.20
+                    self.animator().alphaValue = 1.0
+                }, completionHandler: {
+                    // 发送已经出现的通知
+                    NotificationCenter.default.post(name: LCProgressHUD.didAppear, object: self)
+                })
             }
-            // 设置动画的透明度
-            animator().alphaValue = 1.0
-            NSAnimationContext.endGrouping()
         } else {
-            // 不使用动画，直接设置透明度
             alphaValue = 1.0
             // 发送已经出现的通知
             NotificationCenter.default.post(name: LCProgressHUD.didAppear, object: self)
         }
     }
- 
     
     /// 隐藏LCProgressHUD视图，支持动画效果
     private func hide(_ animated: Bool) {
@@ -416,6 +509,11 @@ public class LCProgressHUD: NSView {
         if windowController?.window?.isVisible == true {
             windowController?.close()   // 关闭窗口控制器
         }
+        
+        // **始终执行 dismissCompletion 回调**
+        dismissCompletion?()
+        dismissCompletion = nil // 避免重复调用
+        
         // 发送已经消失的通知
         NotificationCenter.default.post(name: LCProgressHUD.didDisappear, object: self)
     }
@@ -435,6 +533,7 @@ public class LCProgressHUD: NSView {
         statusLabel.sizeToFit()
     }
 
+    
     /// 处理鼠标点击事件
     /// - Parameter theEvent: 鼠标事件
     public override func mouseDown(with theEvent: NSEvent) {
@@ -460,6 +559,7 @@ public class LCProgressHUD: NSView {
         }
     }
     
+    
     /// 设置进度指示器
     private func setupProgressIndicator() {
         // 根据模式进行设置
@@ -473,18 +573,16 @@ public class LCProgressHUD: NSView {
             view.layer?.addSublayer(progressIndicator)
             indicator = view
             addSubview(indicator!)
-            
-        case .determinate, .info, .success, .error, .text:
+        case .determinate, .text:
             // 如果是确定模式或者其他模式，不需要指示器
             indicator?.removeFromSuperview()
             indicator = nil
             
-        case let .custom(view):
-            // 如果是自定义模式，使用传入的view作为指示器
+            // 如果是成功、错误、自定义带参数的模式，使用传入的view作为指示器
+        case let .success(view), let .error(view), let .info(view) ,let .custom(view):
             indicator?.removeFromSuperview()
             indicator = view
             addSubview(indicator!)
-            
         }
     }
     
@@ -555,6 +653,7 @@ public class LCProgressHUD: NSView {
         }
         let xPos: CGFloat = 0
         indicatorFrame.origin.y = yPos
+        // X值
         indicatorFrame.origin.x = round((bounds.size.width - indicatorFrame.size.width) / 2) + xPos
         indicator?.frame = indicatorFrame
 
@@ -609,6 +708,7 @@ public class LCProgressHUD: NSView {
         context.closePath()
         context.fillPath()
 
+/*
         let center = CGPoint(x: boxRect.origin.x + boxRect.size.width / 2, y: boxRect.origin.y + boxRect.size.height - spinnerSize * 0.9)
         switch mode {
         case .determinate:
@@ -645,7 +745,14 @@ public class LCProgressHUD: NSView {
         default:
             break
         }
-
+*/
+        
+        
+        
+        
+        
+        
+        
         NSGraphicsContext.restoreGraphicsState()
     }
 

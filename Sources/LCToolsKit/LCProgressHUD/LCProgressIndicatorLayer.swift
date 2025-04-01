@@ -2,7 +2,7 @@
 //  LCProgressIndicatorLayer.swift
 //  LCLCProgressHUD
 //
-//  Created by Liu Chuan on 2024/3/8.
+//  Created by DevLiuSir on 2021/6/24.
 //
 
 import Cocoa
