@@ -26,42 +26,38 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCActivityIndicatorManager/*.swift'
   end
 
+  spec.subspec 'LCAppReviewManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
+  end
+  
+  spec.subspec 'LCFileAdministrator' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCFileAdministrator/*.swift'
+  end
+
+  spec.subspec 'LCLogFileManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCLogFileManager/*.swift'
+  end
+
   spec.subspec 'LCProgressHUD' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCProgressHUD/*.swift'
+  end
+  
+  spec.subspec 'LCSpeechManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
+  end
+
+  spec.subspec 'LCTemperatureUtils' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCTemperatureUtils/*.swift'
+  end
+
+  spec.subspec 'LCURLManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCURLManager/*.swift'
   end
 
   spec.subspec 'LCVolumeManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCVolumeManager/*.swift'
   end
   
-  spec.subspec 'LCURLManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCURLManager/*.swift'
-  end
-
-  spec.subspec 'LCDistributedNotificationManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCDistributedNotificationManager/*.swift'
-  end
-
-  spec.subspec 'LCCFNotificationManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCCFNotificationManager/*.swift'
-  end
-
-  spec.subspec 'LCTemperatureUtils' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCTemperatureUtils/*.swift'
-  end
-  
-  spec.subspec 'LCAppReviewManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
-  end
-
-  spec.subspec 'LCFileAdministrator' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCFileAdministrator/*.swift'
-  end
-
-  spec.subspec 'LCSpeechManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
-  end
-
   spec.subspec 'Extension' do |ss|
   ss.source_files = 'Sources/LCToolsKit/Extension/*.swift'
   end
