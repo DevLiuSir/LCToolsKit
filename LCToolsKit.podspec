@@ -40,7 +40,7 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCProgressHUD' do |ss|
   ss.source_files  = 'Sources/LCToolsKit/LCProgressHUD/*.swift'
-  ss.resource      = 'LCToolsKit/LCProgressHUD/Resources/*'
+  ss.resource      = 'Sources/LCToolsKit/LCProgressHUD/Resources/*'
   end
   
   spec.subspec 'LCSpeechManager' do |ss|
