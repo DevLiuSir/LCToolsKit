@@ -107,7 +107,7 @@ public class LCProgressHUD: NSView {
     /// - Returns: 加载的 `NSImage` 对象；如果加载失败，则返回空白 `NSImage()`
     private class func bundleImage(_ imageName: String) -> NSImage {
         // 获取 LCProgressHUD.bundle 的 URL
-        let url = Bundle.main.url(forResource: "LCProgressHUD", withExtension: "bundle")
+        var url = Bundle.main.url(forResource: "LCProgressHUD", withExtension: "bundle")
         if url == nil {
             if let bundleUrl = Bundle.main.url(forResource: "Frameworks", withExtension: nil)?.appendingPathComponent("LCToolsKit").appendingPathExtension("framework"),
                let bundle = Bundle(url: bundleUrl) {
