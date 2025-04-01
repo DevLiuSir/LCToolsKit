@@ -1,7 +1,7 @@
 //
 //  NSScreen+Extension.swift
 //
-//  Created by DevLiuSir on 2023/3/2.
+//  Created by DevLiuSir on 2023/3/20
 //
 
 import Foundation
