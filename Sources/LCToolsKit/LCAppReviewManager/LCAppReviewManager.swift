@@ -52,7 +52,6 @@ public class LCAppReviewManager {
     }
     
     
-    
     /// 检查`应用`是否在  `Apple 审核中`
     /// - Returns: 如果应用处于审核中，则返回 true；否则返回 false
     public static func isAppleReview() -> Bool {
@@ -77,45 +76,29 @@ public class LCAppReviewManager {
         }
     }
     
+    
     /// 设置`审核屏蔽`的`时间段`
     /// - Parameters:
     ///   - beginDate: 开始时间（北京时间），格式：yyyy-MM-dd HH:mm:ss
     ///   - endDate: 结束时间（北京时间），格式：yyyy-MM-dd HH:mm:ss
-    public static func setAppleReview(beginDate: String?, endDate: String?) {
+    public static func set(beginDate: String, endDate: String) {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = TimeZone(identifier: "Asia/Shanghai")
-        
         // 设置审核的 开始时间
-        if let begin = beginDate {
-            shared.beginDate = formatter.date(from: begin)
-        }
-        
+        shared.beginDate = formatter.date(from: beginDate)
         // 设置审核的 结束时间
-        if let end = endDate {
-            shared.endDate = formatter.date(from: end)
-        }
-    }
-    
-    /// 设置`审核屏蔽`的`结束时间`
-    /// - Parameter endDate: 结束时间（北京时间），格式：yyyy-MM-dd HH:mm:ss
-    public static func setAppleReviewEndDate(_ endDate: String) {
-        setAppleReview(beginDate: nil, endDate: endDate)
+        shared.endDate = formatter.date(from: endDate)
     }
     
     /// 判断`是否处于审核中`（基于时间戳）
     /// - Returns: 返回当前时间是否在审核时间段内
-    public static func isAppleReviewWithTimestamps() -> Bool {
-        guard let beginDate = shared.beginDate, let endDate = shared.endDate else {
-            return false
-        }
-        
-        // 获取当前时间
-        let now = Date()
-        
-        // 判断当前时间是否在审核时间段内
-        return beginDate <= now && now <= endDate
+    public static var isReviewing: Bool {
+        guard let beginDate = shared.beginDate,
+              let endDate = shared.endDate else { return false }
+        return beginDate.timeIntervalSinceNow < 0 && endDate.timeIntervalSinceNow > 0
     }
+    
     
 }
