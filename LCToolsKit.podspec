@@ -25,6 +25,10 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCActivityIndicatorManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCActivityIndicatorManager/*.swift'
   end
+  
+  spec.subspec 'LCAppRatingManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppRatingManager/*.swift'
+  end
 
   spec.subspec 'LCAppReviewManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
