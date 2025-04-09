@@ -106,26 +106,20 @@ public class LCProgressHUD: NSView {
     /// - Parameter imageName: 图片文件名（例如 `"success_white@2x.png"`）
     /// - Returns: 加载的 `NSImage` 对象；如果加载失败，则返回空白 `NSImage()`
     private class func bundleImage(_ imageName: String) -> NSImage {
-        // 获取 LCProgressHUD.bundle 的 URL
-        var url = Bundle.main.url(forResource: "LCProgressHUD", withExtension: "bundle")
-        if url == nil {
-            if let bundleUrl = Bundle.main.url(forResource: "Frameworks", withExtension: nil)?.appendingPathComponent("LCToolsKit").appendingPathExtension("framework"),
-               let bundle = Bundle(url: bundleUrl) {
-                url = bundle.url(forResource: "LCProgressHUD", withExtension: "bundle")
-            }
+        // 从当前类的 Bundle 中获取 LCProgressHUD.bundle
+        guard let resourceBundle = Bundle(for: LCProgressHUD.self).url(forResource: "LCProgressHUD", withExtension: "bundle"),
+              let bundle = Bundle(url: resourceBundle) else {
+            return NSImage()
         }
-        
-        // 尝试从 bundle 中构造完整的图片路径并加载图片
-        guard let bundleUrl = url,
-              let path = Bundle(url: bundleUrl)?.bundlePath.appendingFormat("/\(imageName)"),
-              let image = NSImage(contentsOfFile: path) else {
-                  return NSImage() // 如果加载失败，返回空白图片
-              }
-        
+        // 尝试加载图片
+        guard let imagePath = bundle.path(forResource: imageName, ofType: nil),
+              let image = NSImage(contentsOfFile: imagePath) else {
+            return NSImage()
+        }
         return image
     }
     
-
+    
     // MARK: - Presentation
     
     /// 显示一个不确定的`LCProgressHUD`，没有状态消息
@@ -156,7 +150,7 @@ public class LCProgressHUD: NSView {
         showStatus(status, type: .info(view: createImageView(for: "info")))
     }
     
-    /// 显示`文本`信息的方法
+    /// 只显示`文本`信息的方法
     ///
     /// - Parameter status: 提供的状态信息，将在进度HUD中显示
     public class func showTextWithStatus(_ status: String) {
