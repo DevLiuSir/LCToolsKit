@@ -5,6 +5,7 @@
 //  Created by DevLiuSir on 2021/6/24.
 //
 import Foundation
+import AppKit
 
 /// 负责处理`语音输出`的管理类
 public class LCSpeechManager {
