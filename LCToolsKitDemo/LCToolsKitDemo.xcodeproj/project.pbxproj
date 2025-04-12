@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B0D17F22DAA72B9006ADBF8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D17EB2DAA72B9006ADBF8 /* AppDelegate.swift */; };
+		6B0D17F32DAA72B9006ADBF8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D17F02DAA72B9006ADBF8 /* ViewController.swift */; };
+		6B0D17F42DAA72B9006ADBF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D17EC2DAA72B9006ADBF8 /* Assets.xcassets */; };
+		6B0D17F52DAA72B9006ADBF8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D17EF2DAA72B9006ADBF8 /* Main.storyboard */; };
+		6B0D186A2DAA8296006ADBF8 /* LCOpenPanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18522DAA8296006ADBF8 /* LCOpenPanelManager.swift */; };
+		6B0D186B2DAA8296006ADBF8 /* NSScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18412DAA8296006ADBF8 /* NSScreen+Extension.swift */; };
+		6B0D186C2DAA8296006ADBF8 /* L10n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18672DAA8296006ADBF8 /* L10n.swift */; };
+		6B0D186D2DAA8296006ADBF8 /* LCProgressHUDStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D185A2DAA8296006ADBF8 /* LCProgressHUDStyle.swift */; };
+		6B0D186E2DAA8296006ADBF8 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18432DAA8296006ADBF8 /* NSView+Extension.swift */; };
+		6B0D186F2DAA8296006ADBF8 /* NSTextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18422DAA8296006ADBF8 /* NSTextField+Extension.swift */; };
+		6B0D18702DAA8296006ADBF8 /* LCDateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D184C2DAA8296006ADBF8 /* LCDateManager.swift */; };
+		6B0D18712DAA8296006ADBF8 /* LCAppReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D184A2DAA8296006ADBF8 /* LCAppReviewManager.swift */; };
+		6B0D18722DAA8296006ADBF8 /* VolumeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18642DAA8296006ADBF8 /* VolumeInfo.swift */; };
+		6B0D18732DAA8296006ADBF8 /* LCProgressHUDMaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18572DAA8296006ADBF8 /* LCProgressHUDMaskType.swift */; };
+		6B0D18742DAA8296006ADBF8 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D183F2DAA8296006ADBF8 /* NSColor+Extension.swift */; };
+		6B0D18752DAA8296006ADBF8 /* NSWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18442DAA8296006ADBF8 /* NSWindow+Extension.swift */; };
+		6B0D18762DAA8296006ADBF8 /* LCVolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18632DAA8296006ADBF8 /* LCVolumeManager.swift */; };
+		6B0D18772DAA8296006ADBF8 /* LCProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18562DAA8296006ADBF8 /* LCProgressHUD.swift */; };
+		6B0D18782DAA8296006ADBF8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18662DAA8296006ADBF8 /* Constants.swift */; };
+		6B0D18792DAA8296006ADBF8 /* LCSpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D185D2DAA8296006ADBF8 /* LCSpeechManager.swift */; };
+		6B0D187A2DAA8296006ADBF8 /* LCTemperatureUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D185F2DAA8296006ADBF8 /* LCTemperatureUtils.swift */; };
+		6B0D187B2DAA8296006ADBF8 /* LCAppRatingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18482DAA8296006ADBF8 /* LCAppRatingManager.swift */; };
+		6B0D187C2DAA8296006ADBF8 /* LCURLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18612DAA8296006ADBF8 /* LCURLManager.swift */; };
+		6B0D187D2DAA8296006ADBF8 /* NSAlert+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D183E2DAA8296006ADBF8 /* NSAlert+Extension.swift */; };
+		6B0D187E2DAA8296006ADBF8 /* NSRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18402DAA8296006ADBF8 /* NSRect+Extension.swift */; };
+		6B0D187F2DAA8296006ADBF8 /* LCProgressHUDMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18582DAA8296006ADBF8 /* LCProgressHUDMode.swift */; };
+		6B0D18802DAA8296006ADBF8 /* LCFileAdministrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D184E2DAA8296006ADBF8 /* LCFileAdministrator.swift */; };
+		6B0D18812DAA8296006ADBF8 /* LCLogFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18502DAA8296006ADBF8 /* LCLogFileManager.swift */; };
+		6B0D18822DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D185B2DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift */; };
+		6B0D18832DAA8296006ADBF8 /* LCProgressHUDPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18592DAA8296006ADBF8 /* LCProgressHUDPosition.swift */; };
+		6B0D18842DAA8296006ADBF8 /* LCActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18462DAA8296006ADBF8 /* LCActivityIndicatorManager.swift */; };
+		6B0D18852DAA8296006ADBF8 /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D18542DAA8296006ADBF8 /* LCProgressHUD.bundle */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6B0D17D92DAA72B3006ADBF8 /* LCToolsKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCToolsKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B0D17EB2DAA72B9006ADBF8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6B0D17EC2DAA72B9006ADBF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6B0D17ED2DAA72B9006ADBF8 /* LCToolsKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LCToolsKitDemo.entitlements; sourceTree = "<group>"; };
+		6B0D17EE2DAA72B9006ADBF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6B0D17F02DAA72B9006ADBF8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6B0D183E2DAA8296006ADBF8 /* NSAlert+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAlert+Extension.swift"; sourceTree = "<group>"; };
+		6B0D183F2DAA8296006ADBF8 /* NSColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18402DAA8296006ADBF8 /* NSRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRect+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18412DAA8296006ADBF8 /* NSScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18422DAA8296006ADBF8 /* NSTextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextField+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18432DAA8296006ADBF8 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18442DAA8296006ADBF8 /* NSWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Extension.swift"; sourceTree = "<group>"; };
+		6B0D18462DAA8296006ADBF8 /* LCActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		6B0D18482DAA8296006ADBF8 /* LCAppRatingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRatingManager.swift; sourceTree = "<group>"; };
+		6B0D184A2DAA8296006ADBF8 /* LCAppReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppReviewManager.swift; sourceTree = "<group>"; };
+		6B0D184C2DAA8296006ADBF8 /* LCDateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCDateManager.swift; sourceTree = "<group>"; };
+		6B0D184E2DAA8296006ADBF8 /* LCFileAdministrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFileAdministrator.swift; sourceTree = "<group>"; };
+		6B0D18502DAA8296006ADBF8 /* LCLogFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCLogFileManager.swift; sourceTree = "<group>"; };
+		6B0D18522DAA8296006ADBF8 /* LCOpenPanelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCOpenPanelManager.swift; sourceTree = "<group>"; };
+		6B0D18542DAA8296006ADBF8 /* LCProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LCProgressHUD.bundle; sourceTree = "<group>"; };
+		6B0D18562DAA8296006ADBF8 /* LCProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressHUD.swift; sourceTree = "<group>"; };
+		6B0D18572DAA8296006ADBF8 /* LCProgressHUDMaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressHUDMaskType.swift; sourceTree = "<group>"; };
+		6B0D18582DAA8296006ADBF8 /* LCProgressHUDMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressHUDMode.swift; sourceTree = "<group>"; };
+		6B0D18592DAA8296006ADBF8 /* LCProgressHUDPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressHUDPosition.swift; sourceTree = "<group>"; };
+		6B0D185A2DAA8296006ADBF8 /* LCProgressHUDStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressHUDStyle.swift; sourceTree = "<group>"; };
+		6B0D185B2DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCProgressIndicatorLayer.swift; sourceTree = "<group>"; };
+		6B0D185D2DAA8296006ADBF8 /* LCSpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCSpeechManager.swift; sourceTree = "<group>"; };
+		6B0D185F2DAA8296006ADBF8 /* LCTemperatureUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTemperatureUtils.swift; sourceTree = "<group>"; };
+		6B0D18612DAA8296006ADBF8 /* LCURLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCURLManager.swift; sourceTree = "<group>"; };
+		6B0D18632DAA8296006ADBF8 /* LCVolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCVolumeManager.swift; sourceTree = "<group>"; };
+		6B0D18642DAA8296006ADBF8 /* VolumeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInfo.swift; sourceTree = "<group>"; };
+		6B0D18662DAA8296006ADBF8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6B0D18672DAA8296006ADBF8 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B0D17D62DAA72B3006ADBF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B0D17D02DAA72B3006ADBF8 = {
+			isa = PBXGroup;
+			children = (
+				6B0D17F12DAA72B9006ADBF8 /* LCToolsKitDemo */,
+				6B0D17DA2DAA72B3006ADBF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6B0D17DA2DAA72B3006ADBF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D17D92DAA72B3006ADBF8 /* LCToolsKitDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B0D17F12DAA72B9006ADBF8 /* LCToolsKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D17EB2DAA72B9006ADBF8 /* AppDelegate.swift */,
+				6B0D17EC2DAA72B9006ADBF8 /* Assets.xcassets */,
+				6B0D17ED2DAA72B9006ADBF8 /* LCToolsKitDemo.entitlements */,
+				6B0D17EF2DAA72B9006ADBF8 /* Main.storyboard */,
+				6B0D17F02DAA72B9006ADBF8 /* ViewController.swift */,
+				6B0D18692DAA8296006ADBF8 /* LCToolsKit */,
+			);
+			path = LCToolsKitDemo;
+			sourceTree = "<group>";
+		};
+		6B0D18452DAA8296006ADBF8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D183E2DAA8296006ADBF8 /* NSAlert+Extension.swift */,
+				6B0D183F2DAA8296006ADBF8 /* NSColor+Extension.swift */,
+				6B0D18402DAA8296006ADBF8 /* NSRect+Extension.swift */,
+				6B0D18412DAA8296006ADBF8 /* NSScreen+Extension.swift */,
+				6B0D18422DAA8296006ADBF8 /* NSTextField+Extension.swift */,
+				6B0D18432DAA8296006ADBF8 /* NSView+Extension.swift */,
+				6B0D18442DAA8296006ADBF8 /* NSWindow+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6B0D18472DAA8296006ADBF8 /* LCActivityIndicatorManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18462DAA8296006ADBF8 /* LCActivityIndicatorManager.swift */,
+			);
+			path = LCActivityIndicatorManager;
+			sourceTree = "<group>";
+		};
+		6B0D18492DAA8296006ADBF8 /* LCAppRatingManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18482DAA8296006ADBF8 /* LCAppRatingManager.swift */,
+			);
+			path = LCAppRatingManager;
+			sourceTree = "<group>";
+		};
+		6B0D184B2DAA8296006ADBF8 /* LCAppReviewManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D184A2DAA8296006ADBF8 /* LCAppReviewManager.swift */,
+			);
+			path = LCAppReviewManager;
+			sourceTree = "<group>";
+		};
+		6B0D184D2DAA8296006ADBF8 /* LCDateManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D184C2DAA8296006ADBF8 /* LCDateManager.swift */,
+			);
+			path = LCDateManager;
+			sourceTree = "<group>";
+		};
+		6B0D184F2DAA8296006ADBF8 /* LCFileAdministrator */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D184E2DAA8296006ADBF8 /* LCFileAdministrator.swift */,
+			);
+			path = LCFileAdministrator;
+			sourceTree = "<group>";
+		};
+		6B0D18512DAA8296006ADBF8 /* LCLogFileManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18502DAA8296006ADBF8 /* LCLogFileManager.swift */,
+			);
+			path = LCLogFileManager;
+			sourceTree = "<group>";
+		};
+		6B0D18532DAA8296006ADBF8 /* LCOpenPanelManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18522DAA8296006ADBF8 /* LCOpenPanelManager.swift */,
+			);
+			path = LCOpenPanelManager;
+			sourceTree = "<group>";
+		};
+		6B0D18552DAA8296006ADBF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18542DAA8296006ADBF8 /* LCProgressHUD.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B0D185C2DAA8296006ADBF8 /* LCProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18552DAA8296006ADBF8 /* Resources */,
+				6B0D18562DAA8296006ADBF8 /* LCProgressHUD.swift */,
+				6B0D18572DAA8296006ADBF8 /* LCProgressHUDMaskType.swift */,
+				6B0D18582DAA8296006ADBF8 /* LCProgressHUDMode.swift */,
+				6B0D18592DAA8296006ADBF8 /* LCProgressHUDPosition.swift */,
+				6B0D185A2DAA8296006ADBF8 /* LCProgressHUDStyle.swift */,
+				6B0D185B2DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift */,
+			);
+			path = LCProgressHUD;
+			sourceTree = "<group>";
+		};
+		6B0D185E2DAA8296006ADBF8 /* LCSpeechManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D185D2DAA8296006ADBF8 /* LCSpeechManager.swift */,
+			);
+			path = LCSpeechManager;
+			sourceTree = "<group>";
+		};
+		6B0D18602DAA8296006ADBF8 /* LCTemperatureUtils */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D185F2DAA8296006ADBF8 /* LCTemperatureUtils.swift */,
+			);
+			path = LCTemperatureUtils;
+			sourceTree = "<group>";
+		};
+		6B0D18622DAA8296006ADBF8 /* LCURLManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18612DAA8296006ADBF8 /* LCURLManager.swift */,
+			);
+			path = LCURLManager;
+			sourceTree = "<group>";
+		};
+		6B0D18652DAA8296006ADBF8 /* LCVolumeManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18632DAA8296006ADBF8 /* LCVolumeManager.swift */,
+				6B0D18642DAA8296006ADBF8 /* VolumeInfo.swift */,
+			);
+			path = LCVolumeManager;
+			sourceTree = "<group>";
+		};
+		6B0D18682DAA8296006ADBF8 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18662DAA8296006ADBF8 /* Constants.swift */,
+				6B0D18672DAA8296006ADBF8 /* L10n.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
+			isa = PBXGroup;
+			children = (
+				6B0D18452DAA8296006ADBF8 /* Extension */,
+				6B0D18472DAA8296006ADBF8 /* LCActivityIndicatorManager */,
+				6B0D18492DAA8296006ADBF8 /* LCAppRatingManager */,
+				6B0D184B2DAA8296006ADBF8 /* LCAppReviewManager */,
+				6B0D184D2DAA8296006ADBF8 /* LCDateManager */,
+				6B0D184F2DAA8296006ADBF8 /* LCFileAdministrator */,
+				6B0D18512DAA8296006ADBF8 /* LCLogFileManager */,
+				6B0D18532DAA8296006ADBF8 /* LCOpenPanelManager */,
+				6B0D185C2DAA8296006ADBF8 /* LCProgressHUD */,
+				6B0D185E2DAA8296006ADBF8 /* LCSpeechManager */,
+				6B0D18602DAA8296006ADBF8 /* LCTemperatureUtils */,
+				6B0D18622DAA8296006ADBF8 /* LCURLManager */,
+				6B0D18652DAA8296006ADBF8 /* LCVolumeManager */,
+				6B0D18682DAA8296006ADBF8 /* Other */,
+			);
+			name = LCToolsKit;
+			path = ../Sources/LCToolsKit;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B0D17D82DAA72B3006ADBF8 /* LCToolsKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B0D17E82DAA72B4006ADBF8 /* Build configuration list for PBXNativeTarget "LCToolsKitDemo" */;
+			buildPhases = (
+				6B0D17D52DAA72B3006ADBF8 /* Sources */,
+				6B0D17D62DAA72B3006ADBF8 /* Frameworks */,
+				6B0D17D72DAA72B3006ADBF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LCToolsKitDemo;
+			packageProductDependencies = (
+			);
+			productName = LCToolsKitDemo;
+			productReference = 6B0D17D92DAA72B3006ADBF8 /* LCToolsKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B0D17D12DAA72B3006ADBF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					6B0D17D82DAA72B3006ADBF8 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 6B0D17D42DAA72B3006ADBF8 /* Build configuration list for PBXProject "LCToolsKitDemo" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6B0D17D02DAA72B3006ADBF8;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 6B0D17DA2DAA72B3006ADBF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B0D17D82DAA72B3006ADBF8 /* LCToolsKitDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B0D17D72DAA72B3006ADBF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B0D17F42DAA72B9006ADBF8 /* Assets.xcassets in Resources */,
+				6B0D18852DAA8296006ADBF8 /* LCProgressHUD.bundle in Resources */,
+				6B0D17F52DAA72B9006ADBF8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B0D17D52DAA72B3006ADBF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B0D17F22DAA72B9006ADBF8 /* AppDelegate.swift in Sources */,
+				6B0D186A2DAA8296006ADBF8 /* LCOpenPanelManager.swift in Sources */,
+				6B0D186B2DAA8296006ADBF8 /* NSScreen+Extension.swift in Sources */,
+				6B0D186C2DAA8296006ADBF8 /* L10n.swift in Sources */,
+				6B0D186D2DAA8296006ADBF8 /* LCProgressHUDStyle.swift in Sources */,
+				6B0D186E2DAA8296006ADBF8 /* NSView+Extension.swift in Sources */,
+				6B0D186F2DAA8296006ADBF8 /* NSTextField+Extension.swift in Sources */,
+				6B0D18702DAA8296006ADBF8 /* LCDateManager.swift in Sources */,
+				6B0D18712DAA8296006ADBF8 /* LCAppReviewManager.swift in Sources */,
+				6B0D18722DAA8296006ADBF8 /* VolumeInfo.swift in Sources */,
+				6B0D18732DAA8296006ADBF8 /* LCProgressHUDMaskType.swift in Sources */,
+				6B0D18742DAA8296006ADBF8 /* NSColor+Extension.swift in Sources */,
+				6B0D18752DAA8296006ADBF8 /* NSWindow+Extension.swift in Sources */,
+				6B0D18762DAA8296006ADBF8 /* LCVolumeManager.swift in Sources */,
+				6B0D18772DAA8296006ADBF8 /* LCProgressHUD.swift in Sources */,
+				6B0D18782DAA8296006ADBF8 /* Constants.swift in Sources */,
+				6B0D18792DAA8296006ADBF8 /* LCSpeechManager.swift in Sources */,
+				6B0D187A2DAA8296006ADBF8 /* LCTemperatureUtils.swift in Sources */,
+				6B0D187B2DAA8296006ADBF8 /* LCAppRatingManager.swift in Sources */,
+				6B0D187C2DAA8296006ADBF8 /* LCURLManager.swift in Sources */,
+				6B0D187D2DAA8296006ADBF8 /* NSAlert+Extension.swift in Sources */,
+				6B0D187E2DAA8296006ADBF8 /* NSRect+Extension.swift in Sources */,
+				6B0D187F2DAA8296006ADBF8 /* LCProgressHUDMode.swift in Sources */,
+				6B0D18802DAA8296006ADBF8 /* LCFileAdministrator.swift in Sources */,
+				6B0D18812DAA8296006ADBF8 /* LCLogFileManager.swift in Sources */,
+				6B0D18822DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift in Sources */,
+				6B0D18832DAA8296006ADBF8 /* LCProgressHUDPosition.swift in Sources */,
+				6B0D18842DAA8296006ADBF8 /* LCActivityIndicatorManager.swift in Sources */,
+				6B0D17F32DAA72B9006ADBF8 /* ViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6B0D17EF2DAA72B9006ADBF8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6B0D17EE2DAA72B9006ADBF8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6B0D17E62DAA72B4006ADBF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6B0D17E72DAA72B4006ADBF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		6B0D17E92DAA72B4006ADBF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LCToolsKitDemo/LCToolsKitDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QTU7D3WQQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevLiuSir.LCToolsKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6B0D17EA2DAA72B4006ADBF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LCToolsKitDemo/LCToolsKitDemo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QTU7D3WQQ9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DevLiuSir.LCToolsKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B0D17D42DAA72B3006ADBF8 /* Build configuration list for PBXProject "LCToolsKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B0D17E62DAA72B4006ADBF8 /* Debug */,
+				6B0D17E72DAA72B4006ADBF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B0D17E82DAA72B4006ADBF8 /* Build configuration list for PBXNativeTarget "LCToolsKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B0D17E92DAA72B4006ADBF8 /* Debug */,
+				6B0D17EA2DAA72B4006ADBF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B0D17D12DAA72B3006ADBF8 /* Project object */;
+}
