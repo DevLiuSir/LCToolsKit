@@ -7,6 +7,8 @@
 /*-------------------- 数据类型转换 -----------------*/
 import Cocoa
 import Carbon
+import SystemConfiguration
+
 
 // Int 转换为字符串
 public func stringFromInt(_ int: Int) -> String {
@@ -110,13 +112,17 @@ public var kSystemIsDarkTheme: Bool {
     return false
 }
 
+/// Library 路径
+public var kLibraryPath: String {
+    return NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).last ?? ""
+}
 
-// 文件路径
+/// Document 路径
 public let kDocumentPath: String = {
     return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? ""
 }()
 
-/// 缓存路径
+/// Cache 路径
 public let kCachePath: String = {
     return NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last ?? ""
 }()
@@ -146,17 +152,26 @@ public let kAPP_Name: String = {
     return displayName ?? (Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String) ?? (Bundle.main.infoDictionary?["CFBundleName"] as? String) ?? ""
 }()
 
-// Bundle ID
+/// 当前App 的Bundle ID
 public let kBundle_id: String? = {
     return Bundle.main.bundleIdentifier
 }()
 
 
-// 系统版本号
+/// 当前系统版本号
 public let kSystem_OS_Version: String = {
     let osVersion = ProcessInfo.processInfo.operatingSystemVersion
     return "\(osVersion.majorVersion).\(osVersion.minorVersion).\(osVersion.patchVersion)"
 }()
+
+// 当前登录的用户名, 未登录用户时，返回nil
+public var GUIUserName: String? {
+    guard let userName = SCDynamicStoreCopyConsoleUser(nil, nil, nil) as? String,
+          userName != "loginWindow" else {
+        return nil
+    }
+    return userName
+}
 
 
 // MARK: - 修饰键判断的相关方法
@@ -256,3 +271,17 @@ public func CGEventFlagsEqualToModifierFlags(_ cgFlags: CGEventFlags, _ nsFlags:
 
 // MARK: 事件的修饰键 == nsFlags
 public func CGEventMatchesModifierFlags(_ event: CGEvent, _ nsFlags: NSEvent.ModifierFlags) -> Bool { CGEventFlagsEqualToModifierFlags(event.flags, nsFlags) }
+
+// MARK: - 坐标系相关
+
+// 将屏幕坐标系上的点(左上角为(0,0), 向下为正）,转换为视图坐标系上的点（左下角为(0,0), 向上为正）
+public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: NSPoint) -> NSPoint {
+    var coordinatedH = 0.0
+    for screen in NSScreen.screens {
+        if CGPointEqualToPoint(screen.frame.origin, .zero) {
+            coordinatedH = screen.frame.size.height
+            break
+        }
+    }
+    return NSPoint(x: topLeftCoordinateSystemPoint.x, y: coordinatedH - topLeftCoordinateSystemPoint.y)
+}
