@@ -88,7 +88,7 @@ public func mediumFont(ofSize size: CGFloat, weight: NSFont.Weight = .medium) ->
 }
 
 
-// MARK: - app相关信息
+/** ----------- app 相关信息 ----------- */
 
 // 是否是沙盒模式
 public let kAppIsSandbox: Bool = {
@@ -172,6 +172,39 @@ public var GUIUserName: String? {
     }
     return userName
 }
+
+/** -----------  设置相关信息 ----------- */
+
+
+/// 获取`设备的 UUID` 的`后 12 位作`为`密钥`
+///
+/// - Returns: 返回 UUID 的后 12 位字符串，如果获取失败则返回空字符串
+public func getUUID() -> String {
+    /// 存储 UUID 的变量
+    var uuid = ""
+    
+    /// 获取 IOPlatformExpertDevice 服务
+    let platformExpert = IOServiceGetMatchingService(kIOMasterPortDefault, IOServiceMatching("IOPlatformExpertDevice"))
+    
+    if platformExpert != 0 {
+        // 从 IORegistry 中读取 "IOPlatformUUID" 属性
+        if let serialNumberAsCFString = IORegistryEntryCreateCFProperty(platformExpert, "IOPlatformUUID" as CFString, kCFAllocatorDefault, 0)?.takeRetainedValue() as? String {
+            // 提取 UUID 的最后 12 位
+            let components = serialNumberAsCFString.components(separatedBy: "-")
+            if components.count > 4 {
+                uuid = components[4]
+            }
+        }
+        
+        // 释放 IOPlatformExpertDevice 服务
+        IOObjectRelease(platformExpert)
+    }
+    
+    // 返回 UUID 的后 12 位
+    return uuid
+}
+
+
 
 
 // MARK: - 修饰键判断的相关方法
