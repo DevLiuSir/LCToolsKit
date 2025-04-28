@@ -41,6 +41,7 @@
 		6B0D18852DAA8296006ADBF8 /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D18542DAA8296006ADBF8 /* LCProgressHUD.bundle */; };
 		6B5CFA902DB1FE5700B96022 /* LCCursorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */; };
 		6B5D74B02DB5FA19006F299F /* LCAESEncryptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */; };
+		6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		6B0D18672DAA8296006ADBF8 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
 		6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCursorManager.swift; sourceTree = "<group>"; };
 		6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAESEncryptManager.swift; sourceTree = "<group>"; };
+		6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppearanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 				6B0D18622DAA8296006ADBF8 /* LCURLManager */,
 				6B0D18652DAA8296006ADBF8 /* LCVolumeManager */,
 				6B0D18682DAA8296006ADBF8 /* Other */,
+				6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */,
 			);
 			name = LCToolsKit;
 			path = ../Sources/LCToolsKit;
@@ -294,6 +297,14 @@
 				6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */,
 			);
 			path = LCAESEncryptManager;
+			sourceTree = "<group>";
+		};
+		6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */ = {
+			isa = PBXGroup;
+			children = (
+				6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */,
+			);
+			path = LCAppearanceManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +395,7 @@
 				6B0D18732DAA8296006ADBF8 /* LCProgressHUDMaskType.swift in Sources */,
 				6B0D18742DAA8296006ADBF8 /* NSColor+Extension.swift in Sources */,
 				6B5CFA902DB1FE5700B96022 /* LCCursorManager.swift in Sources */,
+				6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */,
 				6B0D18752DAA8296006ADBF8 /* NSWindow+Extension.swift in Sources */,
 				6B0D18762DAA8296006ADBF8 /* LCVolumeManager.swift in Sources */,
 				6B0D18772DAA8296006ADBF8 /* LCProgressHUD.swift in Sources */,

@@ -33,14 +33,32 @@ public extension NSScreen {
     var maxY: CGFloat { NSMaxY(frame) }
     /// 是否是 main screen
     var isMain: Bool { self == NSScreen.main }
+    /// 显示器ID
+    var displayID: CGDirectDisplayID? {
+        // 尝试从屏幕描述信息中获取屏幕编号
+        deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID
+    }
+    
     /// 判断`当前屏幕`是否为`内置显示器`
     var isBuiltin: Bool {
-        // 尝试从屏幕描述信息中获取屏幕编号
-        guard let screenNumber = deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID else {
+        guard let displayID = displayID else {
             return false
         }
         // 使用 CGDisplayIsBuiltin 函数判断是否为内置显示器，并返回结果
-        return CGDisplayIsBuiltin(screenNumber) != 0
+        return CGDisplayIsBuiltin(displayID) != 0
+    }
+    
+    /// 返回`当前屏幕``顶部相机区域`（刘海）的高度（仅适用于带刘海的 Mac）
+    ///
+    /// - Note: 仅在 macOS 12 及以上系统有效；对于没有刘海的屏幕或系统版本过低，将返回 `nil`
+    var cameraHousingHeight: CGFloat? {
+        if #available(macOS 12.0, *) {
+            // 如果 safeAreaInsets.top 为 0，则说明没有刘海；否则返回顶部安全区高度作为相机区域高度
+            return safeAreaInsets.top == 0.0 ? nil : safeAreaInsets.top
+        } else {
+            // 系统版本低于 macOS 12，不支持 safeAreaInsets，无法判断
+            return nil
+        }
     }
     
     /// 计算并返回当前屏幕的菜单栏厚度。如果菜单栏不可见，则返回0。
@@ -69,5 +87,4 @@ public extension NSScreen {
         return NSScreen.screens.first { $0.isBuiltin }
     }
     
-
 }
