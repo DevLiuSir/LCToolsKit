@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.0.8"
+  spec.version      = "1.0.9"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -28,6 +28,10 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCAESEncryptManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAESEncryptManager/*.swift'
+  end
+
+  spec.subspec 'LCAppearanceManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppearanceManager/*.swift'
   end
 
   spec.subspec 'LCCursorManager' do |ss|
