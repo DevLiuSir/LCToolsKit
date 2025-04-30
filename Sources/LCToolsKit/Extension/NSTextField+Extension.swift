@@ -31,4 +31,18 @@ public extension NSTextField {
         lineBreakMode = .byTruncatingTail
     }
     
+    
+    /// 根据给定的最大宽度调整视图尺寸：固定最大宽度，高度自适应。
+    ///
+    /// - Parameter maxWidth: 最大允许的宽度。
+    /// - Returns: 调整后的实际尺寸（宽度 <= maxWidth，高度自适应）。
+    @discardableResult
+    func sizeWith(maxWidth: CGFloat) -> NSSize {
+        let size = sizeThatFits(NSMakeSize(maxWidth, CGFloat.greatestFiniteMagnitude))
+        var frame = self.frame
+        frame.size = size
+        self.frame = frame
+        return size
+    }
+    
 }

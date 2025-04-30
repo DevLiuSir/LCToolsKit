@@ -10,6 +10,45 @@ import AppKit
 // 扩展颜色
 public extension NSColor {
     
+    /// 根据系统的浅色、深色模式, 创建亮色｜暗色模式下的颜色
+    ///
+    /// - Parameters:
+    ///   - light: 浅色模式下使用的颜色。
+    ///   - dark: 深色模式下使用的颜色。如果为 `nil`，则深色模式也使用 `light`。
+    convenience init(light: NSColor, dark: NSColor?) {
+        if #available(macOS 10.15, *) {
+            self.init(name: nil, dynamicProvider: { appearance in
+                if appearance.bestMatch(from: [.darkAqua, .vibrantDark]) == .darkAqua ||
+                   appearance.bestMatch(from: [.darkAqua, .vibrantDark]) == .vibrantDark {
+                    return dark ?? light
+                }
+                return light
+            })
+        } else {
+            self.init(cgColor: light.cgColor)!
+        }
+    }
+    
+    
+    /// 使用十六进制颜色值初始化 NSColor
+    /// - Parameters:
+    ///   - hex: 颜色的十六进制表示，例如 0xFF0000 表示红色
+    ///   - alpha: 透明度，范围为 0.0 ~ 1.0，默认值为 1.0（不透明）
+    convenience init(hex: Int, alpha: CGFloat = 1.0) {
+        // 提取红色分量（右移16位并与0xFF做位与操作）
+        let red = CGFloat((hex >> 16) & 0xFF) / 255.0
+        
+        // 提取绿色分量（右移8位并与0xFF做位与操作）
+        let green = CGFloat((hex >> 8) & 0xFF) / 255.0
+        
+        // 提取蓝色分量（直接与0xFF做位与操作）
+        let blue = CGFloat(hex & 0xFF) / 255.0
+        
+        // 使用 RGB 和 Alpha 初始化 NSColor
+        self.init(red: red, green: green, blue: blue, alpha: alpha)
+    }
+    
+    
     /// 控件强调颜色
     /// - Returns: 控件强调颜色
     static func controlAccentColor() -> NSColor {
