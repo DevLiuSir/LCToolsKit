@@ -39,6 +39,7 @@
 		6B0D18832DAA8296006ADBF8 /* LCProgressHUDPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18592DAA8296006ADBF8 /* LCProgressHUDPosition.swift */; };
 		6B0D18842DAA8296006ADBF8 /* LCActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0D18462DAA8296006ADBF8 /* LCActivityIndicatorManager.swift */; };
 		6B0D18852DAA8296006ADBF8 /* LCProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6B0D18542DAA8296006ADBF8 /* LCProgressHUD.bundle */; };
+		6B0DE7312DDF7A4600C186F2 /* LCBaseBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0DE72F2DDF7A4600C186F2 /* LCBaseBox.swift */; };
 		6B5CFA902DB1FE5700B96022 /* LCCursorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */; };
 		6B5D74B02DB5FA19006F299F /* LCAESEncryptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */; };
 		6B6EF8812DC1BCC700997302 /* KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6EF8802DC1BCC700997302 /* KVO.swift */; };
@@ -81,6 +82,7 @@
 		6B0D18642DAA8296006ADBF8 /* VolumeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeInfo.swift; sourceTree = "<group>"; };
 		6B0D18662DAA8296006ADBF8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6B0D18672DAA8296006ADBF8 /* L10n.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L10n.swift; sourceTree = "<group>"; };
+		6B0DE72F2DDF7A4600C186F2 /* LCBaseBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCBaseBox.swift; sourceTree = "<group>"; };
 		6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCursorManager.swift; sourceTree = "<group>"; };
 		6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAESEncryptManager.swift; sourceTree = "<group>"; };
 		6B6EF8802DC1BCC700997302 /* KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVO.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B0DE7302DDF7A4600C186F2 /* LCBaseBox */,
 				6B5D74AD2DB5F9D5006F299F /* LCAESEncryptManager */,
 				6B5CFA8F2DB1FE5700B96022 /* LCCursorManager */,
 				6B0D18452DAA8296006ADBF8 /* Extension */,
@@ -288,6 +291,14 @@
 			name = LCToolsKit;
 			path = ../Sources/LCToolsKit;
 			sourceTree = SOURCE_ROOT;
+		};
+		6B0DE7302DDF7A4600C186F2 /* LCBaseBox */ = {
+			isa = PBXGroup;
+			children = (
+				6B0DE72F2DDF7A4600C186F2 /* LCBaseBox.swift */,
+			);
+			path = LCBaseBox;
+			sourceTree = "<group>";
 		};
 		6B5CFA8F2DB1FE5700B96022 /* LCCursorManager */ = {
 			isa = PBXGroup;
@@ -388,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B0D17F22DAA72B9006ADBF8 /* AppDelegate.swift in Sources */,
+				6B0DE7312DDF7A4600C186F2 /* LCBaseBox.swift in Sources */,
 				6B0D186A2DAA8296006ADBF8 /* LCOpenPanelManager.swift in Sources */,
 				6B0D186B2DAA8296006ADBF8 /* NSScreen+Extension.swift in Sources */,
 				6B0D186C2DAA8296006ADBF8 /* L10n.swift in Sources */,
