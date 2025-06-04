@@ -47,6 +47,7 @@
 		6B6EF8812DC1BCC700997302 /* KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6EF8802DC1BCC700997302 /* KVO.swift */; };
 		6B6EF8832DC1BD9500997302 /* NSImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6EF8822DC1BD9500997302 /* NSImage+Extension.swift */; };
 		6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */; };
+		6BFB54B82DEFDF5600A9B3D9 /* LCShellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB54B72DEFDF5600A9B3D9 /* LCShellManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +93,7 @@
 		6B6EF8802DC1BCC700997302 /* KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVO.swift; sourceTree = "<group>"; };
 		6B6EF8822DC1BD9500997302 /* NSImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extension.swift"; sourceTree = "<group>"; };
 		6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppearanceManager.swift; sourceTree = "<group>"; };
+		6BFB54B72DEFDF5600A9B3D9 /* LCShellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCShellManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,8 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6BFB54B62DEFDF4500A9B3D9 /* LCShellManager */,
+				6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */,
 				6B0DE7DF2DE6AD3900C186F2 /* LCWallpaperManager */,
 				6B0DE7DC2DE6A72700C186F2 /* LCPopoverManager */,
 				6B0DE7302DDF7A4600C186F2 /* LCBaseBox */,
@@ -292,7 +296,6 @@
 				6B0D18622DAA8296006ADBF8 /* LCURLManager */,
 				6B0D18652DAA8296006ADBF8 /* LCVolumeManager */,
 				6B0D18682DAA8296006ADBF8 /* Other */,
-				6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */,
 			);
 			name = LCToolsKit;
 			path = ../Sources/LCToolsKit;
@@ -344,6 +347,14 @@
 				6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */,
 			);
 			path = LCAppearanceManager;
+			sourceTree = "<group>";
+		};
+		6BFB54B62DEFDF4500A9B3D9 /* LCShellManager */ = {
+			isa = PBXGroup;
+			children = (
+				6BFB54B72DEFDF5600A9B3D9 /* LCShellManager.swift */,
+			);
+			path = LCShellManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +446,7 @@
 				6B0D18712DAA8296006ADBF8 /* LCAppReviewManager.swift in Sources */,
 				6B0D18722DAA8296006ADBF8 /* VolumeInfo.swift in Sources */,
 				6B0D18732DAA8296006ADBF8 /* LCProgressHUDMaskType.swift in Sources */,
+				6BFB54B82DEFDF5600A9B3D9 /* LCShellManager.swift in Sources */,
 				6B0D18742DAA8296006ADBF8 /* NSColor+Extension.swift in Sources */,
 				6B5CFA902DB1FE5700B96022 /* LCCursorManager.swift in Sources */,
 				6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */,
