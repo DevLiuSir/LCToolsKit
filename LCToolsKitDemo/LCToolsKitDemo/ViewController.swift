@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  LCToolsKitDemo
 //
-//  Created by Liu Chuan on 2025/4/12.
+//  Created by DevLiuSir on 2019/3/2.
 //
 
 import Cocoa
