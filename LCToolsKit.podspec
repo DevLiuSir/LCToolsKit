@@ -33,6 +33,12 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCAppearanceManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppearanceManager/*.swift'
   end
+
+
+  spec.subspec 'LCAppEnvironmentDetector' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppEnvironmentDetector/*.swift'
+  end
+
   
   spec.subspec 'LCBaseBox' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCBaseBox/*.swift'
@@ -75,6 +81,12 @@ Pod::Spec.new do |spec|
   ss.resource      = 'Sources/LCToolsKit/LCProgressHUD/Resources/*'
   end
   
+
+  spec.subspec 'LCShellManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCShellManager/*.swift'
+  end
+
+
   spec.subspec 'LCSpeechManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
   end
