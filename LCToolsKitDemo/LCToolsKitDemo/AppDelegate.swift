@@ -14,9 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let a = LCAppEnvironmentDetector.shared.currentEnvironment()
-        
-        
+       
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
