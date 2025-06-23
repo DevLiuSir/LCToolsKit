@@ -229,6 +229,27 @@ public extension NSView {
 }
 
 
+//MARK: - 抖动动画
+public extension NSView {
+    
+    /// 抖动（晃动）动画
+    /// - Parameter duration: 动画持续时间
+    func shake(duration: CFTimeInterval) {
+        
+        let translation = CAKeyframeAnimation(keyPath: "transform.translation.x");
+        // linear: 线性动画
+        translation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        translation.values = [-5, 5, -5, 5, -3, 3, -2, 2, 0]
+        
+        let shakeGroup: CAAnimationGroup = CAAnimationGroup()
+        shakeGroup.animations = [translation]
+        shakeGroup.duration = duration
+        self.layer?.add(shakeGroup, forKey: "shakeIt")
+    }
+    
+}
+
+
 //MARK: 设置指定角为圆角
 public extension NSView {
     
@@ -244,3 +265,14 @@ public extension NSView {
     }
 }
 
+
+// MARK: - NSView 视图管理
+public extension NSView {
+    
+    /// 删除所有子视图
+    func removeAllSubviews() {
+        subviews.forEach {  // 删除所有子视图的扩展，它很快被删除。
+            $0.removeFromSuperview()
+        }
+    }
+}
