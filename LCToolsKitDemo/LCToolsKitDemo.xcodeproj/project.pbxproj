@@ -51,6 +51,7 @@
 		6BE9B0592E04E82E00782620 /* LCAppEnvironmentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */; };
 		6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */; };
 		6BF1D9C22E13E27000BCD227 /* LCWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D9C12E13E27000BCD227 /* LCWindowManager.swift */; };
+		6BF1D9C72E13E7C500BCD227 /* LCCoordinatesAdministrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D9C62E13E7C500BCD227 /* LCCoordinatesAdministrator.swift */; };
 		6BFB54B82DEFDF5600A9B3D9 /* LCShellManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFB54B72DEFDF5600A9B3D9 /* LCShellManager.swift */; };
 		6BFBFC652E0C4241001D9131 /* NSView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBFC642E0C4241001D9131 /* NSView+Frame.swift */; };
 /* End PBXBuildFile section */
@@ -102,6 +103,7 @@
 		6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppEnvironmentDetector.swift; sourceTree = "<group>"; };
 		6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRunEnvironment.swift; sourceTree = "<group>"; };
 		6BF1D9C12E13E27000BCD227 /* LCWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCWindowManager.swift; sourceTree = "<group>"; };
+		6BF1D9C62E13E7C500BCD227 /* LCCoordinatesAdministrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCoordinatesAdministrator.swift; sourceTree = "<group>"; };
 		6BFB54B72DEFDF5600A9B3D9 /* LCShellManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCShellManager.swift; sourceTree = "<group>"; };
 		6BFBFC642E0C4241001D9131 /* NSView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Frame.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,6 +289,7 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6BF1D9C32E13E78600BCD227 /* LCCoordinatesAdministrator */,
 				6BF1D9C02E13E26700BCD227 /* LCWindowManager */,
 				6BE9B0572E04E7F500782620 /* LCAppEnvironmentDetector */,
 				6BFB54B62DEFDF4500A9B3D9 /* LCShellManager */,
@@ -378,6 +381,14 @@
 				6BF1D9C12E13E27000BCD227 /* LCWindowManager.swift */,
 			);
 			path = LCWindowManager;
+			sourceTree = "<group>";
+		};
+		6BF1D9C32E13E78600BCD227 /* LCCoordinatesAdministrator */ = {
+			isa = PBXGroup;
+			children = (
+				6BF1D9C62E13E7C500BCD227 /* LCCoordinatesAdministrator.swift */,
+			);
+			path = LCCoordinatesAdministrator;
 			sourceTree = "<group>";
 		};
 		6BFB54B62DEFDF4500A9B3D9 /* LCShellManager */ = {
@@ -502,6 +513,7 @@
 				6B4242942E09043300632551 /* FileManager+Extension.swift in Sources */,
 				6B0D18822DAA8296006ADBF8 /* LCProgressIndicatorLayer.swift in Sources */,
 				6B0D18832DAA8296006ADBF8 /* LCProgressHUDPosition.swift in Sources */,
+				6BF1D9C72E13E7C500BCD227 /* LCCoordinatesAdministrator.swift in Sources */,
 				6B0D18842DAA8296006ADBF8 /* LCActivityIndicatorManager.swift in Sources */,
 				6B0DE7E12DE6AD3A00C186F2 /* LCWallpaperManager.swift in Sources */,
 				6B0D17F32DAA72B9006ADBF8 /* ViewController.swift in Sources */,
