@@ -11,15 +11,15 @@ Pod::Spec.new do |spec|
 
   spec.license      = { :type => "MIT", :file => "LICENSE" }
 
-  spec.author             = { "Marvin" => "93428739@qq.com" }
+  spec.author                 = { "Marvin" => "93428739@qq.com" }
 
-  spec.swift_versions = ['5.0']
+  spec.swift_versions         = ['5.0']
   
-  spec.platform = :osx
+  spec.platform               = :osx
   
-  spec.osx.deployment_target = "10.15"
+  spec.osx.deployment_target  = "10.15"
 
-  spec.source       = { :git => "https://github.com/DevLiuSir/LCToolsKit.git", :tag => "#{spec.version}" }
+  spec.source                 = { :git => "https://github.com/DevLiuSir/LCToolsKit.git", :tag => "#{spec.version}" }
 
   
   spec.subspec 'LCActivityIndicatorManager' do |ss|
@@ -34,11 +34,9 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCAppearanceManager/*.swift'
   end
 
-
   spec.subspec 'LCAppEnvironmentDetector' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppEnvironmentDetector/*.swift'
   end
-
   
   spec.subspec 'LCBaseBox' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCBaseBox/*.swift'
@@ -81,11 +79,9 @@ Pod::Spec.new do |spec|
   ss.resource      = 'Sources/LCToolsKit/LCProgressHUD/Resources/*'
   end
   
-
   spec.subspec 'LCShellManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCShellManager/*.swift'
   end
-
 
   spec.subspec 'LCSpeechManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
@@ -107,6 +103,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCWallpaperManager/*.swift'
   end
   
+  spec.subspec 'LCWindowManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCWindowManager/*.swift'
+  end
+
   spec.subspec 'Extension' do |ss|
   ss.source_files = 'Sources/LCToolsKit/Extension/*.swift'
   end
