@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 /// 自定义 box
-open class LCBaseBox: NSBox {
+public class LCBaseBox: NSBox {
     
     // MARK: - Public Properties
     
@@ -47,9 +47,10 @@ open class LCBaseBox: NSBox {
         configUI()
     }
     
-    /// 自动响应系统外观切换
-    override open func updateLayer() {
-        super.updateLayer()
+    // 当系统外观（Light / Dark 模式）发生变化时被调用
+    // 适合在此方法中更新界面的颜色、图标等外观相关内容
+    public override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
         setBackgroundColor()
     }
     
@@ -62,7 +63,7 @@ open class LCBaseBox: NSBox {
         cornerRadius = boxCornerRadius
         borderWidth = 0
         contentViewMargins = .zero
-        wantsLayer = true
+        setBackgroundColor()
     }
     
     /// 根据当前系统外观设置背景颜色
@@ -73,5 +74,4 @@ open class LCBaseBox: NSBox {
             self.fillColor = lightBackgroundColor
         }
     }
-
 }
