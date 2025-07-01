@@ -41,7 +41,11 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCBaseBox' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCBaseBox/*.swift'
   end
-  
+
+  spec.subspec 'LCCoordinatesAdministrator' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCCoordinatesAdministrator/*.swift'
+  end
+
   spec.subspec 'LCCursorManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCCursorManager/*.swift'
   end
