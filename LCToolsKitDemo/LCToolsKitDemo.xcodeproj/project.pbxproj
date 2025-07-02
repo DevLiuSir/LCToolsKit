@@ -47,6 +47,7 @@
 		6B5D74B02DB5FA19006F299F /* LCAESEncryptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */; };
 		6B6EF8812DC1BCC700997302 /* KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6EF8802DC1BCC700997302 /* KVO.swift */; };
 		6B6EF8832DC1BD9500997302 /* NSImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6EF8822DC1BD9500997302 /* NSImage+Extension.swift */; };
+		6B82CB832E14D28100C79604 /* LCSystemPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */; };
 		6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */; };
 		6BE9B0592E04E82E00782620 /* LCAppEnvironmentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */; };
 		6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */; };
@@ -100,6 +101,7 @@
 		6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAESEncryptManager.swift; sourceTree = "<group>"; };
 		6B6EF8802DC1BCC700997302 /* KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVO.swift; sourceTree = "<group>"; };
 		6B6EF8822DC1BD9500997302 /* NSImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Extension.swift"; sourceTree = "<group>"; };
+		6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCSystemPreferencesManager.swift; sourceTree = "<group>"; };
 		6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppearanceManager.swift; sourceTree = "<group>"; };
 		6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppEnvironmentDetector.swift; sourceTree = "<group>"; };
 		6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRunEnvironment.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B82CB812E14D27A00C79604 /* LCSystemPreferencesManager */,
 				6BF1D9C32E13E78600BCD227 /* LCCoordinatesAdministrator */,
 				6BF1D9C02E13E26700BCD227 /* LCWindowManager */,
 				6BE9B0572E04E7F500782620 /* LCAppEnvironmentDetector */,
@@ -359,6 +362,14 @@
 				6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */,
 			);
 			path = LCAESEncryptManager;
+			sourceTree = "<group>";
+		};
+		6B82CB812E14D27A00C79604 /* LCSystemPreferencesManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */,
+			);
+			path = LCSystemPreferencesManager;
 			sourceTree = "<group>";
 		};
 		6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */ = {
@@ -490,6 +501,7 @@
 				6BF1D9C22E13E27000BCD227 /* LCWindowManager.swift in Sources */,
 				6B6EF8832DC1BD9500997302 /* NSImage+Extension.swift in Sources */,
 				6B6EF8812DC1BCC700997302 /* KVO.swift in Sources */,
+				6B82CB832E14D28100C79604 /* LCSystemPreferencesManager.swift in Sources */,
 				6B0D18702DAA8296006ADBF8 /* LCDateManager.swift in Sources */,
 				6B0D18712DAA8296006ADBF8 /* LCAppReviewManager.swift in Sources */,
 				6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */,
