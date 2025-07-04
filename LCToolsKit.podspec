@@ -87,6 +87,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCShellManager/*.swift'
   end
 
+  spec.subspec 'LCSoundsManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCSoundsManager/*.swift'
+  end
+  
   spec.subspec 'LCSpeechManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
   end
