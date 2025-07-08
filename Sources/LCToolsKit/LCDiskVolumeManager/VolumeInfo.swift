@@ -1,6 +1,6 @@
 //
 //  VolumeInfo.swift
-//  LCVolumeManager
+//  LCDiskVolumeManager
 //
 //  Created by DevLiuSir on 2020/3/11.
 //

@@ -1,6 +1,6 @@
 //
-//  LCVolumeManager.swift
-//  LCVolumeManager
+//  LCDiskVolumeManager.swift
+//  LCDiskVolumeManager
 //
 //  Created by DevLiuSir on 2020/3/11.
 //
@@ -9,10 +9,10 @@
 import Cocoa
 
 /// 卷宗管理员
-public class LCVolumeManager: NSObject {
+public class LCDiskVolumeManager: NSObject {
     
     /// 单列
-    public static let shared = LCVolumeManager()
+    public static let shared = LCDiskVolumeManager()
     
     /// 私有属性，用于格式化字节数
     private let bytesFormatter: ByteCountFormatter = {
@@ -88,7 +88,7 @@ public class LCVolumeManager: NSObject {
         
         // 遍历所有外置磁盘，传入URL，获取到卷信息，然后添加到 VolumeInfo 结构体
         for volumeURL in volumes {
-            if let info = LCVolumeManager.shared.getVolumeInfo(volumeURL) {
+            if let info = LCDiskVolumeManager.shared.getVolumeInfo(volumeURL) {
                 volumesInfo.append(info)
             }
         }
@@ -108,7 +108,7 @@ public class LCVolumeManager: NSObject {
     /// 获取所有`可移动外置磁盘`
     /// - Returns: 可移动外置磁盘的 VolumeInfo 数组
     public func getRemovableVolumes() -> [VolumeInfo] {
-        let mountedVolumes = LCVolumeManager.shared.mountedVolumes()
+        let mountedVolumes = LCDiskVolumeManager.shared.mountedVolumes()
         let volumes = mountedVolumes.filter { $0.removable }
         return volumes
     }
@@ -116,7 +116,7 @@ public class LCVolumeManager: NSObject {
     /// 获取所有`内置磁盘`
     /// - Returns: 内置磁盘的 VolumeInfo 数组
     public func getInternalVolumes() -> [VolumeInfo] {
-        let mountedVolumes = LCVolumeManager.shared.mountedVolumes()
+        let mountedVolumes = LCDiskVolumeManager.shared.mountedVolumes()
         let volumes = mountedVolumes.filter { !$0.removable }
         return volumes
     }
