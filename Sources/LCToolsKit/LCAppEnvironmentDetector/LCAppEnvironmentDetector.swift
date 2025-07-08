@@ -14,65 +14,70 @@ public struct LCAppEnvironmentDetector {
     
     /// 单例实例
     public static let shared = LCAppEnvironmentDetector()
+    
     private init() {}
     
+    
+    
     /// 获取当前App的运行环境
-    public func currentEnvironment() -> LCAppRunEnvironment {
+    public static func currentEnvironment() -> LCAppRunEnvironment {
+        // 此方法通过调用 `codesign -dv` 命令读取当前 App 的签名信息，并根据签名中的 Authority 字段判断应用的分发方式。
+        let result = runCommand(
+            launchPath: "/usr/bin/codesign",
+            arguments: ["-dv", "--verbose=4", Bundle.main.bundlePath]
+        )
         
-        // 非沙盒（无沙盒容器ID）
-        guard let _ = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] else {
-            print("当前App环境: 非沙盒环境")
-            return .nonSandbox
+        guard result.exitCode == 0 else {
+            print("❌ detectEnvironment error: \(result.output)")
+            return .unknown
         }
         
-        // 若收据文件不存在，视为开发环境
-        guard let receiptURL = Bundle.main.appStoreReceiptURL,
-              FileManager.default.fileExists(atPath: receiptURL.path) else {
-            print("当前App环境: 开发环境（无收据）")
-            return .development
-        }
+        let lines = result.output.components(separatedBy: "\n")
+        let authorityLines = lines.filter { $0.hasPrefix("Authority") }
         
-        // 获取收据静态代码签名信息
-        var staticCode: SecStaticCode?
-        let status = SecStaticCodeCreateWithPath(receiptURL as CFURL, [], &staticCode)
-        guard status == errSecSuccess, let code = staticCode else {
-            print("当前App环境: 开发环境（签名信息无效）")
-            return .development
+        for line in authorityLines {
+            guard let authority = line.components(separatedBy: "=").last?.trimmingCharacters(in: .whitespaces) else {
+                continue
+            }
+            switch authority {
+            case "Apple Mac OS Application Signing":                    return .appStore
+            case "TestFlight Beta Distribution":                        return .testFlight
+            case let id where id.hasPrefix("Developer ID Application"): return .developerID
+            case let id where id.hasPrefix("Apple Distribution"):       return .adHoc
+            case let id where id.hasPrefix("Apple Development"):        return .development
+            default: break
+            }
         }
-        
-        // 判断是否为 App Store 签名
-        if codeSignatureContainsOID(code, oid: "1.2.840.113635.100.6.11.1") {
-            print("当前App环境: App Store")
-            return .appStore
-        }
-        
-        // 判断是否为 TestFlight 签名
-        if codeSignatureContainsOID(code, oid: "1.2.840.113635.100.6.1.25") {
-            print("当前App环境: TestFlight")
-            return .testFlight
-        }
-        
-        // 默认视为开发环境
-        print("当前App环境: 开发环境（未匹配OID）")
-        return .development
+        return .unknown
     }
     
-    /// 检查静态代码签名是否包含指定OID（签名用途标识）
+    
+    /// 执行 shell 命令并获取输出
     ///
     /// - Parameters:
-    ///   - code: 静态代码对象
-    ///   - oid: 签名中的OID（对象标识符）
-    /// - Returns: 是否包含该OID
-    private func codeSignatureContainsOID(_ code: SecStaticCode, oid: String) -> Bool {
-        var requirement: SecRequirement?
-        let requirementString = "certificate leaf[\(oid)] exists" as CFString
-        
-        guard SecRequirementCreateWithString(requirementString, [], &requirement) == errSecSuccess,
-              let req = requirement else {
-            return false
+    ///   - launchPath: 可执行文件路径，如 `/usr/bin/codesign`
+    ///   - arguments: 命令参数
+    /// - Returns: 命令的标准输出（和标准错误合并后）和退出码
+    @discardableResult
+    private static func runCommand(launchPath: String, arguments: [String]) -> (output: String, exitCode: Int32) {
+        let process = Process()
+        process.executableURL = URL(fileURLWithPath: launchPath)
+        process.arguments = arguments
+        let pipe = Pipe()
+        process.standardOutput = pipe
+        process.standardError = pipe
+        do {
+            try process.run()
+            process.waitUntilExit()
+            
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = String(data: data, encoding: .utf8)?
+                .trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            
+            return (output, process.terminationStatus)
+        } catch {
+            return ("Command execution failed: \(error)", -1)
         }
-        
-        // 校验签名是否符合要求
-        return SecStaticCodeCheckValidity(code, [], req) == errSecSuccess
     }
+    
 }
