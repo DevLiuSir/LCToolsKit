@@ -8,7 +8,7 @@
 
 import Foundation
 
-// --- 垃圾桶关系判断 ---
+/// FileManager 扩展
 public extension FileManager {
     
     /// 判断`文件`是否在`垃圾桶`中
@@ -26,4 +26,13 @@ public extension FileManager {
             return false
         }
     }
+    
+    /// 检查给定 URL 是否为目录。
+    /// - Parameter url: 要检查的 URL。
+    /// - Returns: 如果给定 URL 是目录，则返回 true；否则返回 false。
+    func isDirectory(url: URL) -> Bool {
+        var isDirectory: ObjCBool = false
+        return fileExists(atPath: url.path, isDirectory: &isDirectory) && isDirectory.boolValue
+    }
+    
 }
