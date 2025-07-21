@@ -53,7 +53,7 @@
 		6B70DB8A2E2DDEAA00A371CB /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70DB892E2DDEAA00A371CB /* CGRect+Extension.swift */; };
 		6B70DB8C2E2DDEDF00A371CB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70DB8B2E2DDEDF00A371CB /* CGPoint+Extension.swift */; };
 		6B82CB832E14D28100C79604 /* LCSystemPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */; };
-		6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager .swift */; };
+		6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */; };
 		6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */; };
 		6BE9B0592E04E82E00782620 /* LCAppEnvironmentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */; };
 		6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */; };
@@ -114,7 +114,7 @@
 		6B70DB892E2DDEAA00A371CB /* CGRect+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		6B70DB8B2E2DDEDF00A371CB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCSystemPreferencesManager.swift; sourceTree = "<group>"; };
-		6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LCVolumeFeedbackManager .swift"; sourceTree = "<group>"; };
+		6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCVolumeFeedbackManager.swift; sourceTree = "<group>"; };
 		6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppearanceManager.swift; sourceTree = "<group>"; };
 		6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppEnvironmentDetector.swift; sourceTree = "<group>"; };
 		6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRunEnvironment.swift; sourceTree = "<group>"; };
@@ -429,7 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				6BF39B662E17B95C001CBD6A /* LCSoundsManager.swift */,
-				6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager .swift */,
+				6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */,
 			);
 			path = LCSoundsManager;
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				6B70DB8A2E2DDEAA00A371CB /* CGRect+Extension.swift in Sources */,
 				6B0D18712DAA8296006ADBF8 /* LCAppReviewManager.swift in Sources */,
 				6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */,
-				6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager .swift in Sources */,
+				6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift in Sources */,
 				6B0D18722DAA8296006ADBF8 /* VolumeInfo.swift in Sources */,
 				6B0D18732DAA8296006ADBF8 /* LCProgressHUDMaskType.swift in Sources */,
 				6BFB54B82DEFDF5600A9B3D9 /* LCShellManager.swift in Sources */,
