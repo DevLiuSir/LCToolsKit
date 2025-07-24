@@ -18,6 +18,6 @@ public enum LCAppRunEnvironment: String {
     case adHoc          = "Ad Hoc"
     /// 开发调试
     case development    = "Development"
-    /// 未知版本
-    case unknown        = "Unknown"
+    // 未知版本或苹果审核
+    case other          = "Other"
 }

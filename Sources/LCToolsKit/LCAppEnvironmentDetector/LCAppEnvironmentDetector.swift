@@ -18,6 +18,14 @@ public struct LCAppEnvironmentDetector {
     private init() {}
     
     
+    // 审核中
+    public var IsReviewing: Bool {
+        return LCAppEnvironmentDetector.currentEnvironment() == .other
+    }
+    
+    // 测试中
+    public let IsTesting = LCAppEnvironmentDetector.currentEnvironment() == .testFlight || LCAppEnvironmentDetector.currentEnvironment() == .development
+    
     
     /// 获取当前App的运行环境
     public static func currentEnvironment() -> LCAppRunEnvironment {
@@ -29,16 +37,15 @@ public struct LCAppEnvironmentDetector {
         
         guard result.exitCode == 0 else {
             print("❌ detectEnvironment error: \(result.output)")
-            return .unknown
+            return .other
         }
         
+        // 审核中，返回的字符串是 /Applications/xxx.app: No such file or directory
         let lines = result.output.components(separatedBy: "\n")
-        let authorityLines = lines.filter { $0.hasPrefix("Authority") }
+        let authorityLines = lines.compactMap { $0.hasPrefix("Authority") ? $0 : nil }
         
         for line in authorityLines {
-            guard let authority = line.components(separatedBy: "=").last?.trimmingCharacters(in: .whitespaces) else {
-                continue
-            }
+            guard let authority = line.components(separatedBy: "=").last else { continue }
             switch authority {
             case "Apple Mac OS Application Signing":                    return .appStore
             case "TestFlight Beta Distribution":                        return .testFlight
@@ -48,7 +55,7 @@ public struct LCAppEnvironmentDetector {
             default: break
             }
         }
-        return .unknown
+        return .other
     }
     
     
