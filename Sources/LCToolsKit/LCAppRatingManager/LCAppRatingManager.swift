@@ -52,7 +52,9 @@ public class LCAppRatingManager {
         userDefaults.set(execCount, forKey: AppRateExecCountKey)
         if execCount < minExecCount {
             userDefaults.synchronize()
+#if DEBUG
             print("App评分 - 当前执行次数：\(execCount) 未达到 \(minExecCount) 次, 直接返回")
+#endif
             return
         }
         
@@ -62,7 +64,9 @@ public class LCAppRatingManager {
         if currentTime - firstLaunchTime < 60 * 60 * 24 * Double(daysSinceFirstLaunch) {
             userDefaults.synchronize()
             let daysSinceFirst = (currentTime - firstLaunchTime) / (24.0 * 60 * 60)
+#if DEBUG
             print("App评分 - 从第一次执行至今，已经 \(daysSinceFirst) 天，未超过 \(daysSinceFirstLaunch) 天，直接返回")
+#endif
             return
         }
         
@@ -71,7 +75,9 @@ public class LCAppRatingManager {
         if lastShowTime > 0 && currentTime - lastShowTime < 60 * 60 * 24 * Double(daysSinceLastPrompt) {
             userDefaults.synchronize()
             let daysSinceLast = (currentTime - lastShowTime) / (24.0 * 60 * 60)
+#if DEBUG
             print("App评分 - 从上一次执行评分弹窗至今，已经 \(daysSinceLast) 天，未超过 \(daysSinceLastPrompt) 天，直接返回")
+#endif
             return
         }
         
@@ -90,7 +96,9 @@ public class LCAppRatingManager {
                     NSWorkspace.shared.open(url)
                 }
             }
+#if DEBUG
             print("App评分 - 执行了弹窗评分")
+#endif
         }
     }
 }
