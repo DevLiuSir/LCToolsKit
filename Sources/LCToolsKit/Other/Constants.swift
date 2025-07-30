@@ -173,6 +173,21 @@ public var GUIUserName: String? {
     return userName
 }
 
+// 当前登录的用户名(例如/Users/xxx/中的xxx，有可能跟 GUIUserName 不一样), 未登录用户时，返回nil
+public var GUIUserDisplayName: String? {
+    var uid: uid_t = 0
+    guard let userName = SCDynamicStoreCopyConsoleUser(nil, &uid, nil) as? String,
+          userName != "loginWindow" else {
+        return nil
+    }
+    guard let pwd = getpwuid(uid),
+          let home = pwd.pointee.pw_dir else {
+        return nil
+    }
+    return String(cString: home).components(separatedBy: "/").last
+}
+
+
 /** -----------  设置相关信息 ----------- */
 
 
