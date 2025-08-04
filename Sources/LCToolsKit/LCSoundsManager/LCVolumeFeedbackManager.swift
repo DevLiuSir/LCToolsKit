@@ -1,13 +1,9 @@
 //
-//  LCDiskVolumeManager.swift
-//  PopClip
+//  LCVolumeFeedbackManager.swift
 //
-//  Created by Liu Chuan on 2024/8/8.
 //
-//  Copyright Ningbo Shangguan Technology Co.,Ltd. All Rights Reserved.
-//  宁波上官科技有限公司版权所有，保留一切权利。
+//  Created by DevLiuSir on 2019/3/2.
 //
-
 
 import Foundation
 import AudioToolbox
