@@ -254,5 +254,47 @@ public class LCDateManager {
     public static func dateComponents(for date: Date) -> DateComponents {
         return Calendar.current.dateComponents([.year, .month, .day, .weekday, .weekOfYear, .weekOfMonth, .hour, .minute, .second], from: date)
     }
+    
+    
+    
+    /// 将秒数转换为天、小时、分钟等时间组件
+    /// - Parameter seconds: 秒数
+    /// - Returns: 包含天、小时、分钟、秒的字典
+    public func timeComponents(from seconds: Int) -> [String: Any] {
+        let days = seconds / (60 * 60 * 24)
+        let hours = (seconds / 3600) % 24
+        let minutes = (seconds / 60) % 60
+        let remainingSeconds = seconds % 60
+        
+        return [
+            "Days": days,
+            "Hours": hours,
+            "Minutes": minutes,
+            "Seconds": remainingSeconds
+        ]
+    }
+    
+    /// 将秒数转换为剩余天数
+    /// - Parameter seconds: 秒数
+    /// - Returns: 天数
+    public func days(from seconds: Int) -> Int {
+        return seconds / (60 * 60 * 24)
+    }
+    
+    /// 将秒数转换为小时数
+    /// - Parameter seconds: 秒数
+    /// - Returns: 小时数
+    public func hours(from seconds: Int) -> Int {
+        return (seconds / 3600) % 24
+    }
+    
+    /// 将秒数转换为分钟数
+    /// - Parameter seconds: 秒数
+    /// - Returns: 分钟数
+    public func minutes(from seconds: Int) -> Int {
+        return (seconds / 60) % 60
+    }
+    
+    
 }
 
