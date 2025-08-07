@@ -55,6 +55,8 @@
 		6B70DB8C2E2DDEDF00A371CB /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B70DB8B2E2DDEDF00A371CB /* CGPoint+Extension.swift */; };
 		6B82CB832E14D28100C79604 /* LCSystemPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */; };
 		6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */; };
+		6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */; };
+		6B9DA0CF2E44432600F13084 /* LCFileSizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */; };
 		6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */; };
 		6BE9B0592E04E82E00782620 /* LCAppEnvironmentDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */; };
 		6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */; };
@@ -117,6 +119,8 @@
 		6B70DB8B2E2DDEDF00A371CB /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCSystemPreferencesManager.swift; sourceTree = "<group>"; };
 		6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCVolumeFeedbackManager.swift; sourceTree = "<group>"; };
+		6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewHelper.swift; sourceTree = "<group>"; };
+		6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFileSizeTool.swift; sourceTree = "<group>"; };
 		6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppearanceManager.swift; sourceTree = "<group>"; };
 		6BE9B0582E04E82E00782620 /* LCAppEnvironmentDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppEnvironmentDetector.swift; sourceTree = "<group>"; };
 		6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRunEnvironment.swift; sourceTree = "<group>"; };
@@ -315,6 +319,8 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B9DA0CD2E44431C00F13084 /* LCFileSizeTool */,
+				6B9DA0CA2E443B2A00F13084 /* LCTableViewHelper */,
 				6B1712192E408E38000687D1 /* LCStatusItemPositionManager */,
 				6BF39B652E17B94A001CBD6A /* LCSoundsManager */,
 				6B82CB812E14D27A00C79604 /* LCSystemPreferencesManager */,
@@ -401,6 +407,22 @@
 				6B82CB822E14D28100C79604 /* LCSystemPreferencesManager.swift */,
 			);
 			path = LCSystemPreferencesManager;
+			sourceTree = "<group>";
+		};
+		6B9DA0CA2E443B2A00F13084 /* LCTableViewHelper */ = {
+			isa = PBXGroup;
+			children = (
+				6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */,
+			);
+			path = LCTableViewHelper;
+			sourceTree = "<group>";
+		};
+		6B9DA0CD2E44431C00F13084 /* LCFileSizeTool */ = {
+			isa = PBXGroup;
+			children = (
+				6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */,
+			);
+			path = LCFileSizeTool;
 			sourceTree = "<group>";
 		};
 		6BCD07802DBFDFD000A983C7 /* LCAppearanceManager */ = {
@@ -559,6 +581,7 @@
 				6B0D18752DAA8296006ADBF8 /* NSWindow+Extension.swift in Sources */,
 				6B0D18762DAA8296006ADBF8 /* LCDiskVolumeManager.swift in Sources */,
 				6B0D18772DAA8296006ADBF8 /* LCProgressHUD.swift in Sources */,
+				6B9DA0CF2E44432600F13084 /* LCFileSizeTool.swift in Sources */,
 				6B70DB862E2DDD6400A371CB /* NSButton+Extension.swift in Sources */,
 				6BF39B672E17B95C001CBD6A /* LCSoundsManager.swift in Sources */,
 				6B0D18782DAA8296006ADBF8 /* Constants.swift in Sources */,
@@ -567,6 +590,7 @@
 				6B0D187A2DAA8296006ADBF8 /* LCTemperatureUtils.swift in Sources */,
 				6B70DB882E2DDD9D00A371CB /* NSEvent+Extension.swift in Sources */,
 				6B0D187B2DAA8296006ADBF8 /* LCAppRatingManager.swift in Sources */,
+				6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */,
 				6B0D187C2DAA8296006ADBF8 /* LCURLManager.swift in Sources */,
 				6B0D187D2DAA8296006ADBF8 /* NSAlert+Extension.swift in Sources */,
 				6B0D187E2DAA8296006ADBF8 /* NSRect+Extension.swift in Sources */,
