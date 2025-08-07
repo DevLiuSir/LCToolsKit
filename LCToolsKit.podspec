@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.1.4"
+  spec.version      = "1.1.5"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -37,7 +37,15 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCAppEnvironmentDetector' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppEnvironmentDetector/*.swift'
   end
-  
+
+  spec.subspec 'LCAppRatingManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppRatingManager/*.swift'
+  end
+
+  spec.subspec 'LCAppReviewManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
+  end
+
   spec.subspec 'LCBaseBox' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCBaseBox/*.swift'
   end
@@ -50,28 +58,28 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCCursorManager/*.swift'
   end
 
-  spec.subspec 'LCAppRatingManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppRatingManager/*.swift'
-  end
-
-  spec.subspec 'LCAppReviewManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
-  end
-  
   spec.subspec 'LCDateManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCDateManager/*.swift'
   end
 
-  spec.subspec 'LCOpenPanelManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCOpenPanelManager/*.swift'
+  spec.subspec 'LCDiskVolumeManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCDiskVolumeManager/*.swift'
   end
 
   spec.subspec 'LCFileAdministrator' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCFileAdministrator/*.swift'
   end
 
+  spec.subspec 'LCFileSizeTool' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCFileSizeTool/*.swift'
+  end
+  
   spec.subspec 'LCLogFileManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCLogFileManager/*.swift'
+  end
+
+  spec.subspec 'LCOpenPanelManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCOpenPanelManager/*.swift'
   end
 
   spec.subspec 'LCPopoverManager' do |ss|
@@ -95,8 +103,16 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCSpeechManager/*.swift'
   end
 
+  spec.subspec 'LCStatusItemPositionManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCStatusItemPositionManager/*.swift'
+  end
+
   spec.subspec 'LCSystemPreferencesManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSystemPreferencesManager/*.swift'
+  end
+
+  spec.subspec 'LCTableViewHelper' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCTableViewHelper/*.swift'
   end
 
   spec.subspec 'LCTemperatureUtils' do |ss|
@@ -105,10 +121,6 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCURLManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCURLManager/*.swift'
-  end
-
-  spec.subspec 'LCDiskVolumeManager' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCDiskVolumeManager/*.swift'
   end
 
   spec.subspec 'LCWallpaperManager' do |ss|
