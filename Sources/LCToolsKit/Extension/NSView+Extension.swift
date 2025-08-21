@@ -258,10 +258,12 @@ public extension NSView {
     //   - corners: 要设置为圆角的角，例如 [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     //   - radius: 圆角的半径
     func setCornerRadius(for corners: CACornerMask, radius: CGFloat, backgroundColor: NSColor = .clear) {
-        self.wantsLayer = true
-        self.layer?.backgroundColor = backgroundColor.cgColor
-        self.layer?.maskedCorners = corners
-        self.layer?.cornerRadius = radius
+        clipsToBounds = true
+        wantsLayer = true
+        layer?.backgroundColor = backgroundColor.cgColor
+        layer?.maskedCorners = corners
+        layer?.cornerRadius = radius
+        layer?.masksToBounds = true
     }
 }
 
