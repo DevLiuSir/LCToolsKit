@@ -10,6 +10,12 @@ import Cocoa
  */
 public extension NSTextField {
     
+    /// 当前文本框是否正在被编辑（拥有第一响应者焦点）
+    var isBeingEdited: Bool {
+        return self.window?.firstResponder == self.currentEditor()
+    }
+    
+    
     /// 设置背景颜色和圆角样式
     /// - Parameters:
     ///   - color: 背景颜色
