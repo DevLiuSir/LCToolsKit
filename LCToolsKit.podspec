@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.1.5"
+  spec.version      = "1.1.6"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -90,6 +90,10 @@ Pod::Spec.new do |spec|
   ss.source_files  = 'Sources/LCToolsKit/LCProgressHUD/*.swift'
   ss.resource      = 'Sources/LCToolsKit/LCProgressHUD/Resources/*'
   end
+
+  spec.subspec 'LCSavePanelManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCSavePanelManager/*.swift'
+  end
   
   spec.subspec 'LCShellManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCShellManager/*.swift'
@@ -117,6 +121,14 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCTemperatureUtils' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCTemperatureUtils/*.swift'
+  end
+
+  spec.subspec 'LCTextField' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCTextField/*.swift'
+  end
+
+  spec.subspec 'LCTextHighlighter' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCTextHighlighter/*.swift'
   end
 
   spec.subspec 'LCURLManager' do |ss|
