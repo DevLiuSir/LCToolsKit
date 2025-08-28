@@ -30,6 +30,14 @@ public extension NSEvent {
         return modifierFlags.contains(.command)
     }
     
+    
+    /// 判断是否为鼠标滚轮事件（离散滚动）
+    var isMouseScroll: Bool {
+        // 非连续滚动，并且没有精细滚动增量，一般就是鼠标滚轮
+        return phase.isEmpty && !hasPreciseScrollingDeltas
+    }
+    
+    
     /// 判断当前事件是否为触控板两指滚动（高精度滚动）
     ///
     /// - Returns: 如果是触控板滚动事件，返回 true；否则返回 false。
