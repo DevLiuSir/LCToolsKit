@@ -134,7 +134,10 @@ public extension NSWindow {
     var centerPoint: NSPoint { NSMakePoint(width / 2, height / 2) }
     
     //MARK: - method
-    static func clearBackground() -> NSWindow {
+    
+    /// 创建一个透明、无系统按钮的窗口
+    /// - Returns: 配置好透明背景和隐藏系统按钮的 NSWindow
+    static func makeTransparentWindow() -> NSWindow {
         let window = NSWindow(
             contentRect: .zero,
             styleMask: [.titled, .fullSizeContentView, .miniaturizable, .closable],

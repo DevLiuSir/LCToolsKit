@@ -250,21 +250,35 @@ public extension NSView {
 }
 
 
-//MARK: 设置指定角为圆角
+// MARK: 设置指定角为圆角
 public extension NSView {
     
-    // 设置视图的指定角为圆角
-    // - Parameters:
-    //   - corners: 要设置为圆角的角，例如 [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-    //   - radius: 圆角的半径
-    func setCornerRadius(for corners: CACornerMask, radius: CGFloat, backgroundColor: NSColor = .clear) {
-        clipsToBounds = true
+    /// 设置视图的指定角为圆角
+    /// - Parameters:
+    ///   - corners: 要设置为圆角的角，默认四个角都圆角
+    ///   - radius: 圆角的半径
+    ///   - backgroundColor: 背景颜色，默认透明
+    func setCornerRadius(for corners: CACornerMask = [.layerMinXMinYCorner,
+                                                      .layerMaxXMinYCorner,
+                                                      .layerMinXMaxYCorner,
+                                                      .layerMaxXMaxYCorner],
+                         radius: CGFloat, backgroundColor: NSColor = .clear) {
         wantsLayer = true
+        clipsToBounds = true
         layer?.backgroundColor = backgroundColor.cgColor
         layer?.maskedCorners = corners
         layer?.cornerRadius = radius
         layer?.masksToBounds = true
     }
+    
+    
+    /// 快速设置背景色
+    /// - Parameter color: 背景颜色
+    func setBackgroundColor(_ color: NSColor) {
+        wantsLayer = true
+        layer?.backgroundColor = color.cgColor
+    }
+    
 }
 
 
