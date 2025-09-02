@@ -58,6 +58,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCCursorManager/*.swift'
   end
 
+  spec.subspec 'LCCustomTableRowView' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCCustomTableRowView/*.swift'
+  end
+
   spec.subspec 'LCDateManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCDateManager/*.swift'
   end
