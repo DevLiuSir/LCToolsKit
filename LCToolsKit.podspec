@@ -123,6 +123,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCSystemPreferencesManager/*.swift'
   end
 
+  spec.subspec 'LCSystemVersionUtil' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCSystemVersionUtil/*.swift'
+  end
+  
   spec.subspec 'LCTableViewHelper' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCTableViewHelper/*.swift'
   end
