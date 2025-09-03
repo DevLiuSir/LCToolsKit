@@ -82,6 +82,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCLogFileManager/*.swift'
   end
 
+  spec.subspec 'LCLoginItemManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCLoginItemManager/*.swift'
+  end
+
   spec.subspec 'LCOpenPanelManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCOpenPanelManager/*.swift'
   end
