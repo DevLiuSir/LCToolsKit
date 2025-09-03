@@ -10,6 +10,23 @@ import Cocoa
  */
 public extension NSTextField {
     
+    /// 占位符颜色
+    var placeholderTextColor: NSColor? {
+        get {
+            guard let attr = self.placeholderAttributedString else { return nil }
+            var range = NSRange(location: 0, length: 0)
+            return attr.attribute(.foregroundColor, at: 0, effectiveRange: &range) as? NSColor
+        }
+        set {
+            let placeholderText = self.placeholderString ?? ""
+            let attrStr = newValue
+                .map { NSAttributedString(string: placeholderText, attributes: [.foregroundColor: $0]) } ??
+            NSAttributedString(string: placeholderText)
+            self.placeholderAttributedString = attrStr
+        }
+    }
+    
+    
     /// 当前文本框是否正在被编辑（拥有第一响应者焦点）
     var isBeingEdited: Bool {
         return self.window?.firstResponder == self.currentEditor()
