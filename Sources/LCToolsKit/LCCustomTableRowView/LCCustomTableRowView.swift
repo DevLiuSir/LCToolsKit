@@ -23,9 +23,20 @@ public class LCCustomTableRowView: NSTableRowView {
         didSet { needsDisplay = true }
     }
     
-    /// 鼠标悬停行的背景颜色
-    public var hoverBackgroundColor: NSColor = NSColor(calibratedWhite: 0.9, alpha: 0.1) {
+    /// 鼠标悬停颜色 - 浅色模式
+    public var hoverBackgroundColorLight: NSColor = NSColor.black.withAlphaComponent(0.1) {
         didSet { needsDisplay = true }
+    }
+    
+    /// 鼠标悬停颜色 - 深色模式
+    public var hoverBackgroundColorDark: NSColor = NSColor.white.withAlphaComponent(0.1) {
+        didSet { needsDisplay = true }
+    }
+    
+    /// 鼠标悬停时实际使用的颜色，根据系统外观动态选择
+    private var currentHoverColor: NSColor {
+        let isDark = effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+        return isDark ? hoverBackgroundColorDark : hoverBackgroundColorLight
     }
     
     /// 行视图背景圆角半径
@@ -84,10 +95,20 @@ public class LCCustomTableRowView: NSTableRowView {
     public override func drawBackground(in dirtyRect: NSRect) {
         // 如果鼠标进入、且没有选中当前行的话，就绘制背景色
         if hoverEnabled && mouseInside && !isSelected {
-            updateBackgroundColor(hoverBackgroundColor, cornerRadius: rowCornerRadius)
+            updateBackgroundColor(currentHoverColor, cornerRadius: rowCornerRadius)
         }
     }
     
+    /** ----------- 当系统外观（浅色 / 深色模式）发生变化时调用 ----------- */
+    // 当系统外观（Light / Dark 模式）发生变化时被调用
+    // 适合在此方法中更新界面的颜色、图标等外观相关内容
+    public override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
+        // 鼠标悬停时会重新绘制背景
+        if hoverEnabled && mouseInside && !isSelected {
+            needsDisplay = true
+        }
+    }
     
     /// 更新 `行视图`的 `背景颜色` 和 `圆角`。
     ///
