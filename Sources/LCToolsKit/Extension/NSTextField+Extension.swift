@@ -93,4 +93,36 @@ public extension NSTextField {
         return fittingSize
     }
     
+    
+    
+    /// 在 macOS 26+ 移除系统默认背景，并应用自定义圆角和边框样式
+    ///
+    /// - Parameters:
+    ///   - cornerRadius: 圆角半径，默认 6
+    ///   - borderColor: 边框颜色，默认浅灰色
+    ///   - borderWidth: 边框宽度，默认 1
+    @available(macOS 26.0, *)
+    func applyCustomStyle(cornerRadius: CGFloat = 6,
+                          borderColor: NSColor = NSColor.lightGray.withAlphaComponent(0.6),
+                          borderWidth: CGFloat = 1) {
+        // ⚠️ macOS 26.0 之后，NSTextField 内部结构发生变化
+        // 系统会在搜索框中自动插入一个 NSCoreHostingView 作为背景视图，
+        // 该背景视图会覆盖我们自定义的样式（圆角、边框等）
+        // 所以需要遍历子视图并隐藏掉该背景视图
+        for view in subviews {
+            if view.className.contains("NSCoreHostingView") {
+                view.isHidden = true
+            }
+        }
+        
+        // 应用自定义样式
+        wantsLayer = true
+        layer?.cornerRadius = cornerRadius
+        layer?.borderColor = borderColor.cgColor
+        layer?.borderWidth = borderWidth
+    }
+    
+    
+    
+    
 }
