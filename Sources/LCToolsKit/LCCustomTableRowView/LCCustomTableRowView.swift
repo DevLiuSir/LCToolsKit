@@ -54,6 +54,14 @@ public class LCCustomTableRowView: NSTableRowView {
         didSet { needsDisplay = true }
     }
     
+    
+    /// 选中区域的水平偏移量
+    public var selectionOffsetX: CGFloat = 5 {
+        didSet { needsDisplay = true }
+    }
+    
+    
+    
     // MARK: - Lifecycle
     
     // 添加鼠标跟踪区域
@@ -116,11 +124,8 @@ public class LCCustomTableRowView: NSTableRowView {
     ///   - color: 选中区域的背景颜色。
     ///   - cornerRadius: 圆角半径，用于选中区域的边框圆角。
     private func updateBackgroundColor(_ color: NSColor, cornerRadius: CGFloat) {
-        // 定义选中区域的 x 坐标起始位置
-        let PositionX: CGFloat = 10
-        
         // 获取当前行视图的矩形区域
-        let rect = NSRect(x: PositionX, y: 0, width: self.bounds.width - PositionX * 2, height: self.bounds.height)
+        let rect = NSRect(x: selectionOffsetX, y: 0, width: self.bounds.width - selectionOffsetX * 2, height: self.bounds.height)
         
         // 根据 PositionX 和单元格的宽度，计算选中区域的矩形
         let selectionRect = NSInsetRect(rect, 2.5, 2.5)
