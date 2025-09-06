@@ -54,4 +54,52 @@ public class LCTableViewHelper {
     }
     
     
+    /// `移动`表格中的`一行`到`新位置`，如果`旧索引`和`新索引不同`才执行`移动操作`
+    ///
+    /// - Parameters:
+    ///   - tableView: 目标 `NSTableView`，需要移动行的表格视图
+    ///   - oldIndex: 行的原始索引
+    ///   - newIndex: 行的新索引位置
+    public static func moveRowIfNeeded(_ tableView: NSTableView, oldIndex: Int, newIndex: Int) {
+        // 检查索引有效性以及是否需要移动， 如果索引无效或者相同，将不会执行移动操作
+        guard oldIndex != newIndex,
+              oldIndex >= 0, oldIndex < tableView.numberOfRows,
+              newIndex >= 0, newIndex <= tableView.numberOfRows else { return }
+        
+        // 开始批量更新，保证动画和布局一致
+        tableView.beginUpdates()
+        
+        // 执行移动操作
+        tableView.moveRow(at: oldIndex, to: newIndex)
+        
+        // 结束批量更新，刷新表格显示动画
+        tableView.endUpdates()
+    }
+    
+    
+    
+    /// 刷新表格中`指定行`的数据，不会刷新`整个表格`
+    ///
+    /// - Parameters:
+    ///   - tableView: 目标 `NSTableView`，需要刷新行的表格视图
+    ///   - index: 需要刷新的行索引
+    ///
+    /// - Note: 如果索引无效，将不会执行刷新操作
+    /// - Important: 刷新会包含该行的所有列
+    public static func reloadRow(_ tableView: NSTableView, at index: Int) {
+        // 检查索引有效性
+        guard index >= 0 && index < tableView.numberOfRows else { return }
+        
+        // 创建行索引集合
+        let rowIndexSet = IndexSet(integer: index)
+        // 创建列索引集合（刷新该行所有列）
+        let columnIndexSet = IndexSet(integersIn: 0..<tableView.numberOfColumns)
+        
+        // 执行刷新
+        tableView.reloadData(forRowIndexes: rowIndexSet,
+                             columnIndexes: columnIndexSet)
+    }
+    
+    
+    
 }
