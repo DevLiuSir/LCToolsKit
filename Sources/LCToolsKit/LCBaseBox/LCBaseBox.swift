@@ -10,7 +10,7 @@ import Foundation
 import AppKit
 
 /// 自定义 box
-public class LCBaseBox: NSBox {
+open class LCBaseBox: NSBox {
     
     // MARK: - Public Properties
     
