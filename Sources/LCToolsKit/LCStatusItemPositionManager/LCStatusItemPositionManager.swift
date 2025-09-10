@@ -9,7 +9,7 @@ import Foundation
 
 
 /// 管理 NSStatusItem 在菜单栏中的显示位置（是否靠右）
-final class LCStatusItemPositionManager {
+public final class LCStatusItemPositionManager {
 
     /// 默认使用的 UserDefaults 键（针对第一个状态栏项）
     private static let preferredPositionKey = "NSStatusItem Preferred Position Item-0"

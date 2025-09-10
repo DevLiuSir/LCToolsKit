@@ -8,21 +8,6 @@ import Cocoa
 
 public extension NSImage {
     
-    /// 以当前图像为基础，更改图片的颜色
-    ///
-    /// - Parameter color: 要覆盖应用的颜色（使用 `.sourceAtop` 模式）
-    /// - Returns: 渲染后的新图像，如果转换失败则返回 `nil`
-    func render(color: NSColor) -> NSImage? {
-        guard let img = copy() as? NSImage else { return nil }
-        img.lockFocus()
-        color.setFill()
-        let rect = NSRect(origin: .zero, size: size)
-        rect.fill(using: .sourceAtop)
-        img.unlockFocus()
-        return img
-    }
-    
-    
     /// 裁剪`图片中心区域`为`正方形`
     ///
     /// - Parameter targetSize: 目标尺寸（例如：60x60）
