@@ -102,6 +102,10 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCSavePanelManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCSavePanelManager/*.swift'
   end
+
+  spec.subspec 'LCScrollBarPreferenceManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCScrollBarPreferenceManager/*.swift'
+  end
   
   spec.subspec 'LCShellManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCShellManager/*.swift'
