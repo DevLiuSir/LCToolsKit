@@ -61,6 +61,7 @@
 		6B8B8C002E6800E5007D9CCC /* LCLoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */; };
 		6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */; };
 		6B9DA0CF2E44432600F13084 /* LCFileSizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */; };
+		6BA392792E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA392782E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift */; };
 		6BAEC3012E56B9D700544957 /* LCSavePanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAEC2FF2E56B9D700544957 /* LCSavePanelManager.swift */; };
 		6BB6A0602E711BD500E81B51 /* NSImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB6A05F2E711BD500E81B51 /* NSImage+Color.swift */; };
 		6BC2D76B2E852835003FFF43 /* LCScrollBarPreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC2D76A2E852835003FFF43 /* LCScrollBarPreferenceManager.swift */; };
@@ -135,6 +136,7 @@
 		6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCLoginItemManager.swift; sourceTree = "<group>"; };
 		6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewHelper.swift; sourceTree = "<group>"; };
 		6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFileSizeTool.swift; sourceTree = "<group>"; };
+		6BA392782E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+SmoothCorner.swift"; sourceTree = "<group>"; };
 		6BAEC2FF2E56B9D700544957 /* LCSavePanelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCSavePanelManager.swift; sourceTree = "<group>"; };
 		6BB6A05F2E711BD500E81B51 /* NSImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImage+Color.swift"; sourceTree = "<group>"; };
 		6BC2D76A2E852835003FFF43 /* LCScrollBarPreferenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCScrollBarPreferenceManager.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				6B0D18422DAA8296006ADBF8 /* NSTextField+Extension.swift */,
 				6B0D18432DAA8296006ADBF8 /* NSView+Extension.swift */,
 				6BFBFC642E0C4241001D9131 /* NSView+Frame.swift */,
+				6BA392782E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift */,
 				6BF1D9C82E13F08100BCD227 /* NSMenu+Extension.swift */,
 				6B0D18442DAA8296006ADBF8 /* NSWindow+Extension.swift */,
 				6B4242932E09043300632551 /* FileManager+Extension.swift */,
@@ -677,6 +680,7 @@
 				6B70DB8C2E2DDEDF00A371CB /* CGPoint+Extension.swift in Sources */,
 				6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */,
 				6B0DE7DE2DE6A73D00C186F2 /* LCPopoverManager.swift in Sources */,
+				6BA392792E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift in Sources */,
 				6B0D18752DAA8296006ADBF8 /* NSWindow+Extension.swift in Sources */,
 				6B0D18762DAA8296006ADBF8 /* LCDiskVolumeManager.swift in Sources */,
 				6B0D18772DAA8296006ADBF8 /* LCProgressHUD.swift in Sources */,
