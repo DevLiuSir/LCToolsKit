@@ -292,3 +292,25 @@ public extension NSView {
         }
     }
 }
+
+//MARK: - 设置背景色
+public extension NSView {
+    
+    // MARK: 设置背景色
+    var bgColor: NSColor? {
+        get {
+            guard let cgColor = layer?.backgroundColor else { return nil}
+            return NSColor(cgColor: cgColor)
+        }
+        set {
+            if let bgColor = newValue {
+                wantsLayer = true
+                layer?.backgroundColor = bgColor.cgColor
+            } else {
+                wantsLayer = false
+                layer?.backgroundColor = nil
+            }
+        }
+    }
+    
+}
