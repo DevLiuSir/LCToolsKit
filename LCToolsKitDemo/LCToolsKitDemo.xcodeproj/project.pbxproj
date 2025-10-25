@@ -72,6 +72,7 @@
 		6BE9B05B2E04EA3F00782620 /* LCAppRunEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */; };
 		6BEAC7612E45843B0059062B /* LCVerticalCenteredTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAC7602E45843B0059062B /* LCVerticalCenteredTextFieldCell.swift */; };
 		6BEAC7662E4590650059062B /* LCTextHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEAC7652E4590650059062B /* LCTextHighlighter.swift */; };
+		6BF17FFB2EACBD6900585CEE /* String+Hash.swift in Resources */ = {isa = PBXBuildFile; fileRef = 6BF17FFA2EACBD6900585CEE /* String+Hash.swift */; };
 		6BF1D9C22E13E27000BCD227 /* LCWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D9C12E13E27000BCD227 /* LCWindowManager.swift */; };
 		6BF1D9C72E13E7C500BCD227 /* LCCoordinatesAdministrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D9C62E13E7C500BCD227 /* LCCoordinatesAdministrator.swift */; };
 		6BF1D9C92E13F08100BCD227 /* NSMenu+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF1D9C82E13F08100BCD227 /* NSMenu+Extension.swift */; };
@@ -149,6 +150,7 @@
 		6BE9B05A2E04EA3F00782620 /* LCAppRunEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppRunEnvironment.swift; sourceTree = "<group>"; };
 		6BEAC7602E45843B0059062B /* LCVerticalCenteredTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCVerticalCenteredTextFieldCell.swift; sourceTree = "<group>"; };
 		6BEAC7652E4590650059062B /* LCTextHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTextHighlighter.swift; sourceTree = "<group>"; };
+		6BF17FFA2EACBD6900585CEE /* String+Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Hash.swift"; sourceTree = "<group>"; };
 		6BF1D9C12E13E27000BCD227 /* LCWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCWindowManager.swift; sourceTree = "<group>"; };
 		6BF1D9C62E13E7C500BCD227 /* LCCoordinatesAdministrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCoordinatesAdministrator.swift; sourceTree = "<group>"; };
 		6BF1D9C82E13F08100BCD227 /* NSMenu+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMenu+Extension.swift"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				6B70DB892E2DDEAA00A371CB /* CGRect+Extension.swift */,
 				6B70DB8B2E2DDEDF00A371CB /* CGPoint+Extension.swift */,
 				6BFC10092E5FFBBB008161D5 /* String+Extension.swift */,
+				6BF17FFA2EACBD6900585CEE /* String+Hash.swift */,
 				6B0D183E2DAA8296006ADBF8 /* NSAlert+Extension.swift */,
 				6B70DB852E2DDD6400A371CB /* NSButton+Extension.swift */,
 				6B0D183F2DAA8296006ADBF8 /* NSColor+Extension.swift */,
@@ -641,6 +644,7 @@
 			files = (
 				6B0D17F42DAA72B9006ADBF8 /* Assets.xcassets in Resources */,
 				6B0D18852DAA8296006ADBF8 /* LCProgressHUD.bundle in Resources */,
+				6BF17FFB2EACBD6900585CEE /* String+Hash.swift in Resources */,
 				6B0D17F52DAA72B9006ADBF8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
