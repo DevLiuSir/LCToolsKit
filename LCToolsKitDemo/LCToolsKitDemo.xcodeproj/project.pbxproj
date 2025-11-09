@@ -45,6 +45,7 @@
 		6B17121A2E408E38000687D1 /* LCStatusItemPositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1712182E408E38000687D1 /* LCStatusItemPositionManager.swift */; };
 		6B2394212E6A755800E77BB8 /* LCGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2394202E6A755800E77BB8 /* LCGradientView.swift */; };
 		6B4242942E09043300632551 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4242932E09043300632551 /* FileManager+Extension.swift */; };
+		6B4949B32EC06E6C0025B9DE /* LCAppAppearanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */; };
 		6B4A54BA2E66D83500D9D290 /* LCCustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */; };
 		6B5CFA902DB1FE5700B96022 /* LCCursorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */; };
 		6B5D74B02DB5FA19006F299F /* LCAESEncryptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */; };
@@ -123,6 +124,7 @@
 		6B1712182E408E38000687D1 /* LCStatusItemPositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStatusItemPositionManager.swift; sourceTree = "<group>"; };
 		6B2394202E6A755800E77BB8 /* LCGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCGradientView.swift; sourceTree = "<group>"; };
 		6B4242932E09043300632551 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppAppearanceTool.swift; sourceTree = "<group>"; };
 		6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCustomTableRowView.swift; sourceTree = "<group>"; };
 		6B5CFA8E2DB1FE5700B96022 /* LCCursorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCursorManager.swift; sourceTree = "<group>"; };
 		6B5D74AF2DB5FA19006F299F /* LCAESEncryptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAESEncryptManager.swift; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				6BCD077F2DBFDFD000A983C7 /* LCAppearanceManager.swift */,
+				6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */,
 			);
 			path = LCAppearanceManager;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				6B70DB8C2E2DDEDF00A371CB /* CGPoint+Extension.swift in Sources */,
 				6BCD07812DBFDFD000A983C7 /* LCAppearanceManager.swift in Sources */,
 				6BAD66B42EA9DADF004A9355 /* LCTextDrawHelper.swift in Sources */,
+				6B4949B32EC06E6C0025B9DE /* LCAppAppearanceTool.swift in Sources */,
 				6BAD66B52EA9DADF004A9355 /* LCStrokeTextField.swift in Sources */,
 				6B0DE7DE2DE6A73D00C186F2 /* LCPopoverManager.swift in Sources */,
 				6BA392792E9D0C9B0076AFB8 /* NSView+SmoothCorner.swift in Sources */,
