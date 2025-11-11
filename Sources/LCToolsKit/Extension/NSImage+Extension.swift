@@ -8,6 +8,59 @@ import Cocoa
 
 public extension NSImage {
     
+    /// 按`比例`调整图像
+    /// - Parameters:
+    ///   - image: 需要调整的图像
+    ///   - w: 目标宽度
+    ///   - h: 目标高度
+    /// - Returns: 调整后的图像
+    func scaleResizeImage(image: NSImage, w: CGFloat, h: CGFloat) -> NSImage {
+        // 获取原始图像的宽度和高度
+        let imgW = image.size.width
+        let imgH = image.size.height
+        // 计算原始图像和目标尺寸的宽高比
+        let prop1 = imgW / imgH
+        let prop2 = w / h
+        var newImgW, newImgH, padW, padH: CGFloat!
+        
+        // 根据 宽\高比 确定是否需要填充边框
+        // 当原图 宽\高比 大于目标 宽\高比 时，将调整 宽度 至 目标宽度，高度将根据 比例 调整并填充 上下空白
+        if prop1 > prop2 {
+            newImgW = w
+            newImgH = imgH * (w / imgW)
+            // 计算上下填充高度
+            padH = (h - newImgH) / 2
+            padW = 0
+        } else {
+            // 否则将调整高度至目标高度，宽度根据比例调整并填充左右空白
+            newImgH = h
+            newImgW = imgW * (h / imgH)
+            // 计算左右填充宽度
+            padW = (w - newImgW) / 2
+            padH = 0
+        }
+        
+        // 创建目标图像大小和绘制区域
+        let newImgSize: NSSize = NSMakeSize(newImgW, newImgH)
+        let destSize: NSSize = NSMakeSize(w, h)
+        
+        // 创建新的图像并调整为目标尺寸
+        let newImage = NSImage(size: destSize)
+        newImage.lockFocus()
+        
+        // 绘制原图至指定区域，自动添加填充
+        image.draw(in: NSMakeRect(padW, padH, newImgSize.width, newImgSize.height),
+                   from: NSMakeRect(0, 0, image.size.width, image.size.height),
+                   operation: .sourceOver,
+                   fraction: CGFloat(1))
+        
+        newImage.unlockFocus()
+        newImage.size = destSize
+        return newImage
+    }
+    
+    
+    
     /// 裁剪`图片中心区域`为`正方形`
     ///
     /// - Parameter targetSize: 目标尺寸（例如：60x60）
