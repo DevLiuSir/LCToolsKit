@@ -50,6 +50,7 @@
 		6B31E2F32ECAB56E00168A34 /* LCKeyboardEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */; };
 		6B31E2F72ECABF8D00168A34 /* NSResponder+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2F62ECABF8D00168A34 /* NSResponder+Category.swift */; };
 		6B31E2F92ECAC38900168A34 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2F82ECAC38900168A34 /* NSObject+Event.swift */; };
+		6B31E2FC2ECAC6D800168A34 /* LCAppSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2FB2ECAC6D800168A34 /* LCAppSecurity.swift */; };
 		6B4242942E09043300632551 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4242932E09043300632551 /* FileManager+Extension.swift */; };
 		6B4949B32EC06E6C0025B9DE /* LCAppAppearanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */; };
 		6B4A54BA2E66D83500D9D290 /* LCCustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */; };
@@ -134,6 +135,7 @@
 		6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCKeyboardEvents.swift; sourceTree = "<group>"; };
 		6B31E2F62ECABF8D00168A34 /* NSResponder+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+Category.swift"; sourceTree = "<group>"; };
 		6B31E2F82ECAC38900168A34 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
+		6B31E2FB2ECAC6D800168A34 /* LCAppSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppSecurity.swift; sourceTree = "<group>"; };
 		6B4242932E09043300632551 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppAppearanceTool.swift; sourceTree = "<group>"; };
 		6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCustomTableRowView.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B31E2FA2ECAC69600168A34 /* LCAppSecurity */,
 				6B31E2F12ECAB55300168A34 /* LCKeyboardEvents */,
 				6B31E2EE2ECAAF8200168A34 /* LCUserDefaults */,
 				6B31E2EB2ECAAD7000168A34 /* LCControl */,
@@ -474,6 +477,14 @@
 				6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */,
 			);
 			path = LCKeyboardEvents;
+			sourceTree = "<group>";
+		};
+		6B31E2FA2ECAC69600168A34 /* LCAppSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				6B31E2FB2ECAC6D800168A34 /* LCAppSecurity.swift */,
+			);
+			path = LCAppSecurity;
 			sourceTree = "<group>";
 		};
 		6B4A54B82E66D7F400D9D290 /* LCCustomTableRowView */ = {
@@ -715,6 +726,7 @@
 				6BF1D9C22E13E27000BCD227 /* LCWindowManager.swift in Sources */,
 				6B6EF8832DC1BD9500997302 /* NSImage+Extension.swift in Sources */,
 				6B6EF8812DC1BCC700997302 /* KVO.swift in Sources */,
+				6B31E2FC2ECAC6D800168A34 /* LCAppSecurity.swift in Sources */,
 				6B82CB832E14D28100C79604 /* LCSystemPreferencesManager.swift in Sources */,
 				6BAEC3012E56B9D700544957 /* LCSavePanelManager.swift in Sources */,
 				6B0D18702DAA8296006ADBF8 /* LCDateManager.swift in Sources */,
