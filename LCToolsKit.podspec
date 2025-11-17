@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.1.8"
+  spec.version      = "1.1.9"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -46,8 +46,16 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
   end
 
+  spec.subspec 'LCAppSecurity' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppSecurity/*.swift'
+  end
+
   spec.subspec 'LCBaseBox' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCBaseBox/*.swift'
+  end
+
+  spec.subspec 'LCControl' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCControl/*.swift'
   end
 
   spec.subspec 'LCCoordinatesAdministrator' do |ss|
@@ -77,7 +85,15 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCFileSizeTool' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCFileSizeTool/*.swift'
   end
-  
+
+  spec.subspec 'LCGradientView' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCGradientView/*.swift'
+  end
+
+  spec.subspec 'LCKeyboardEvents' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCKeyboardEvents/*.swift'
+  end
+
   spec.subspec 'LCLogFileManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCLogFileManager/*.swift'
   end
@@ -149,6 +165,10 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCURLManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCURLManager/*.swift'
+  end
+
+  spec.subspec 'LCUserDefaults' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCUserDefaults/*.swift'
   end
 
   spec.subspec 'LCWallpaperManager' do |ss|
