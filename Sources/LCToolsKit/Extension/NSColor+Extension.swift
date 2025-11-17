@@ -49,6 +49,22 @@ public extension NSColor {
     }
     
     
+    
+    /// 获取十六进制字符串
+    var hexString: String {
+        let r = Int(round(redComponent * 255))
+        let g = Int(round(greenComponent * 255))
+        let b = Int(round(blueComponent * 255))
+        let a = Int(round(alphaComponent * 255))
+        if a == 255 {
+            return String(format: "#%02X%02X%02X", r, g, b)
+        } else {
+            return String(format: "#%02X%02X%02X%02X", r, g, b, a)
+        }
+    }
+    
+    
+    
     /// 控件强调颜色
     /// - Returns: 控件强调颜色
     static func controlAccentColor() -> NSColor {
