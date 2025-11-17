@@ -46,6 +46,8 @@
 		6B2394212E6A755800E77BB8 /* LCGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2394202E6A755800E77BB8 /* LCGradientView.swift */; };
 		6B31E2D12ECAAAE400168A34 /* NSSplitView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2D02ECAAAE400168A34 /* NSSplitView+Extension.swift */; };
 		6B31E2ED2ECAAD7F00168A34 /* LCControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2EC2ECAAD7F00168A34 /* LCControl.swift */; };
+		6B31E2F02ECAAF8C00168A34 /* LCUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2EF2ECAAF8C00168A34 /* LCUserDefaults.swift */; };
+		6B31E2F32ECAB56E00168A34 /* LCKeyboardEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */; };
 		6B4242942E09043300632551 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4242932E09043300632551 /* FileManager+Extension.swift */; };
 		6B4949B32EC06E6C0025B9DE /* LCAppAppearanceTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */; };
 		6B4A54BA2E66D83500D9D290 /* LCCustomTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */; };
@@ -127,6 +129,8 @@
 		6B2394202E6A755800E77BB8 /* LCGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCGradientView.swift; sourceTree = "<group>"; };
 		6B31E2D02ECAAAE400168A34 /* NSSplitView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSplitView+Extension.swift"; sourceTree = "<group>"; };
 		6B31E2EC2ECAAD7F00168A34 /* LCControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCControl.swift; sourceTree = "<group>"; };
+		6B31E2EF2ECAAF8C00168A34 /* LCUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCUserDefaults.swift; sourceTree = "<group>"; };
+		6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCKeyboardEvents.swift; sourceTree = "<group>"; };
 		6B4242932E09043300632551 /* FileManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 		6B4949B22EC06E6C0025B9DE /* LCAppAppearanceTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppAppearanceTool.swift; sourceTree = "<group>"; };
 		6B4A54B92E66D83500D9D290 /* LCCustomTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCCustomTableRowView.swift; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 		6B0D18692DAA8296006ADBF8 /* LCToolsKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B31E2F12ECAB55300168A34 /* LCKeyboardEvents */,
+				6B31E2EE2ECAAF8200168A34 /* LCUserDefaults */,
 				6B31E2EB2ECAAD7000168A34 /* LCControl */,
 				6BC2D7692E85282B003FFF43 /* LCScrollBarPreferenceManager */,
 				6B7A71212E68AC0100B52D8F /* LCSystemVersionUtil */,
@@ -447,6 +453,22 @@
 				6B31E2EC2ECAAD7F00168A34 /* LCControl.swift */,
 			);
 			path = LCControl;
+			sourceTree = "<group>";
+		};
+		6B31E2EE2ECAAF8200168A34 /* LCUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				6B31E2EF2ECAAF8C00168A34 /* LCUserDefaults.swift */,
+			);
+			path = LCUserDefaults;
+			sourceTree = "<group>";
+		};
+		6B31E2F12ECAB55300168A34 /* LCKeyboardEvents */ = {
+			isa = PBXGroup;
+			children = (
+				6B31E2F22ECAB56E00168A34 /* LCKeyboardEvents.swift */,
+			);
+			path = LCKeyboardEvents;
 			sourceTree = "<group>";
 		};
 		6B4A54B82E66D7F400D9D290 /* LCCustomTableRowView */ = {
@@ -726,12 +748,14 @@
 				6BFBFC652E0C4241001D9131 /* NSView+Frame.swift in Sources */,
 				6B0D187A2DAA8296006ADBF8 /* LCTemperatureUtils.swift in Sources */,
 				6B70DB882E2DDD9D00A371CB /* NSEvent+Extension.swift in Sources */,
+				6B31E2F02ECAAF8C00168A34 /* LCUserDefaults.swift in Sources */,
 				6BEAC7662E4590650059062B /* LCTextHighlighter.swift in Sources */,
 				6B0D187B2DAA8296006ADBF8 /* LCAppRatingManager.swift in Sources */,
 				6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */,
 				6B0D187C2DAA8296006ADBF8 /* LCURLManager.swift in Sources */,
 				6B0D187D2DAA8296006ADBF8 /* NSAlert+Extension.swift in Sources */,
 				6B0D187E2DAA8296006ADBF8 /* NSRect+Extension.swift in Sources */,
+				6B31E2F32ECAB56E00168A34 /* LCKeyboardEvents.swift in Sources */,
 				6B0D187F2DAA8296006ADBF8 /* LCProgressHUDMode.swift in Sources */,
 				6B8B8C002E6800E5007D9CCC /* LCLoginItemManager.swift in Sources */,
 				6B0D18802DAA8296006ADBF8 /* LCFileAdministrator.swift in Sources */,
