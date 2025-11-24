@@ -202,7 +202,7 @@ public class LCProgressHUD: NSView {
     ///
     /// - Parameter progress: 进度值，范围在0.0到1.0之间
     /// - Parameter status: 状态消息，显示在进度条下方
-    class func show(progress: Double) {
+    public class func show(progress: Double) {
         LCProgressHUD.show(progress: progress, status: LCProgressHUD.shared.statusLabel.string)
     }
     
@@ -210,7 +210,7 @@ public class LCProgressHUD: NSView {
     ///
     /// - Parameter progress: 进度值，范围在0.0到1.0之间
     /// - Parameter status: 状态消息，显示在进度条下方
-    class func show(progress: Double, status: String) {
+    public class func show(progress: Double, status: String) {
         LCProgressHUD.shared.show(progress: progress, status: status)
     }
     
@@ -218,7 +218,7 @@ public class LCProgressHUD: NSView {
     /// 设置`LCProgressHUD`的状态
     ///
     /// - Parameter status: 需要设置的状态消息
-    class func setStatus(_ status: String) {
+    public class func setStatus(_ status: String) {
         /// 如果`LCProgressHUD`当前处于隐藏状态，则不进行任何操作
         if LCProgressHUD.shared.isHidden {
             return
@@ -229,7 +229,7 @@ public class LCProgressHUD: NSView {
     /// 如果当前正在显示 `LCProgressHUD`，则返回 `true`
     ///
     /// - Returns: 如果 `LCProgressHUD` 当前正在显示，则为 `true`
-    class func isVisible() -> Bool {
+    public class func isVisible() -> Bool {
         return !LCProgressHUD.shared.isHidden
     }
 
