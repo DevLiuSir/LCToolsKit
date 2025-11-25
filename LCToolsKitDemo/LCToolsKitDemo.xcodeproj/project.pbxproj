@@ -69,6 +69,7 @@
 		6B8735CB2ED5B03A00F061AE /* LCAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735C92ED5B03A00F061AE /* LCAppChecker.swift */; };
 		6B8735CC2ED5B03A00F061AE /* LCAppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735CA2ED5B03A00F061AE /* LCAppLauncher.swift */; };
 		6B8735CE2ED5BFBD00F061AE /* LCAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735CD2ED5BFBD00F061AE /* LCAppInfo.swift */; };
+		6B8735D02ED5C1B600F061AE /* NSControl+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735CF2ED5C1B600F061AE /* NSControl+Extension.swift */; };
 		6B8B8C002E6800E5007D9CCC /* LCLoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */; };
 		6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */; };
 		6B9DA0CF2E44432600F13084 /* LCFileSizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */; };
@@ -157,6 +158,7 @@
 		6B8735C92ED5B03A00F061AE /* LCAppChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppChecker.swift; sourceTree = "<group>"; };
 		6B8735CA2ED5B03A00F061AE /* LCAppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppLauncher.swift; sourceTree = "<group>"; };
 		6B8735CD2ED5BFBD00F061AE /* LCAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppInfo.swift; sourceTree = "<group>"; };
+		6B8735CF2ED5C1B600F061AE /* NSControl+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Extension.swift"; sourceTree = "<group>"; };
 		6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCLoginItemManager.swift; sourceTree = "<group>"; };
 		6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewHelper.swift; sourceTree = "<group>"; };
 		6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFileSizeTool.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				6B0D183F2DAA8296006ADBF8 /* NSColor+Extension.swift */,
 				6B31E2F62ECABF8D00168A34 /* NSResponder+Category.swift */,
 				6B70DB872E2DDD9D00A371CB /* NSEvent+Extension.swift */,
+				6B8735CF2ED5C1B600F061AE /* NSControl+Extension.swift */,
 				6B31E2F82ECAC38900168A34 /* NSObject+Event.swift */,
 				6B6EF8822DC1BD9500997302 /* NSImage+Extension.swift */,
 				6BB6A05F2E711BD500E81B51 /* NSImage+Color.swift */,
@@ -790,6 +793,7 @@
 				6B0D187B2DAA8296006ADBF8 /* LCAppRatingManager.swift in Sources */,
 				6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */,
 				6B0D187C2DAA8296006ADBF8 /* LCURLManager.swift in Sources */,
+				6B8735D02ED5C1B600F061AE /* NSControl+Extension.swift in Sources */,
 				6B0D187D2DAA8296006ADBF8 /* NSAlert+Extension.swift in Sources */,
 				6B0D187E2DAA8296006ADBF8 /* NSRect+Extension.swift in Sources */,
 				6B31E2F72ECABF8D00168A34 /* NSResponder+Category.swift in Sources */,
