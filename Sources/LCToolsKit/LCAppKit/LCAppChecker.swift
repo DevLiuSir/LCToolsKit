@@ -10,30 +10,17 @@ import Cocoa
 /// App 检查工具类
 public struct LCAppChecker {
     
-    /// 根据`应用程序标识符数组`检查是否`正在运行`
-    /// - Parameter identifiers: 应用程序的 bundleIdentifier 前缀数组
-    /// - Returns: 如果指定标识符的应用程序正在运行，则返回 `true`，否则返回 `false`
-    public static func isAppRunning(with identifiers: [String]) -> Bool {
-        // 获取当前运行中的所有应用程序
-        let runningApplications = NSWorkspace.shared.runningApplications
-        
-        // 遍历运行中的应用程序
-        for app in runningApplications {
-            // 判断应用的 bundleIdentifier 是否存在
-            if let bundleIdentifier = app.bundleIdentifier {
-                // 遍历所有指定的标识符前缀
-                for iden in identifiers {
-                    // 检查 bundleIdentifier 是否以指定前缀开头
-                    if bundleIdentifier.hasPrefix(iden) {
-                        return true // 找到匹配的应用程序，返回 true
-                    }
-                }
+    /// 检查`指定 App` 是否`正在运行`
+    /// - Parameter bundleIds: 单个或多个应用的 Bundle Identifier
+    /// - Returns: 如果任意指定的应用正在运行，则返回 true，否则返回 false
+    public static func isAppRunning(_ bundleIds: [String]) -> Bool {
+        for id in bundleIds {
+            if !NSRunningApplication.runningApplications(withBundleIdentifier: id).isEmpty {
+                return true     // 找到匹配的应用程序，返回 true
             }
         }
-        // 如果未找到符合条件的应用程序，返回 false
-        return false
+        return false    // 如果未找到符合条件的应用程序，返回 false
     }
-    
     
     /// 判断 App 是否安装
     /// - Parameters:
