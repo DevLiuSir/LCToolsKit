@@ -68,6 +68,7 @@
 		6B86BA5A2E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */; };
 		6B8735CB2ED5B03A00F061AE /* LCAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735C92ED5B03A00F061AE /* LCAppChecker.swift */; };
 		6B8735CC2ED5B03A00F061AE /* LCAppLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735CA2ED5B03A00F061AE /* LCAppLauncher.swift */; };
+		6B8735CE2ED5BFBD00F061AE /* LCAppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8735CD2ED5BFBD00F061AE /* LCAppInfo.swift */; };
 		6B8B8C002E6800E5007D9CCC /* LCLoginItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */; };
 		6B9DA0CC2E443B3100F13084 /* LCTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */; };
 		6B9DA0CF2E44432600F13084 /* LCFileSizeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */; };
@@ -155,6 +156,7 @@
 		6B86BA592E1CA94000BA8D97 /* LCVolumeFeedbackManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCVolumeFeedbackManager.swift; sourceTree = "<group>"; };
 		6B8735C92ED5B03A00F061AE /* LCAppChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppChecker.swift; sourceTree = "<group>"; };
 		6B8735CA2ED5B03A00F061AE /* LCAppLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppLauncher.swift; sourceTree = "<group>"; };
+		6B8735CD2ED5BFBD00F061AE /* LCAppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCAppInfo.swift; sourceTree = "<group>"; };
 		6B8B8BFF2E6800E5007D9CCC /* LCLoginItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCLoginItemManager.swift; sourceTree = "<group>"; };
 		6B9DA0CB2E443B3100F13084 /* LCTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTableViewHelper.swift; sourceTree = "<group>"; };
 		6B9DA0CE2E44432600F13084 /* LCFileSizeTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFileSizeTool.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 		6B8735C82ED5AFF700F061AE /* LCAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				6B8735CD2ED5BFBD00F061AE /* LCAppInfo.swift */,
 				6B8735C92ED5B03A00F061AE /* LCAppChecker.swift */,
 				6B8735CA2ED5B03A00F061AE /* LCAppLauncher.swift */,
 			);
@@ -778,6 +781,7 @@
 				6B31E2F92ECAC38900168A34 /* NSObject+Event.swift in Sources */,
 				6B31E2D12ECAAAE400168A34 /* NSSplitView+Extension.swift in Sources */,
 				6B0D18792DAA8296006ADBF8 /* LCSpeechManager.swift in Sources */,
+				6B8735CE2ED5BFBD00F061AE /* LCAppInfo.swift in Sources */,
 				6BFBFC652E0C4241001D9131 /* NSView+Frame.swift in Sources */,
 				6B0D187A2DAA8296006ADBF8 /* LCTemperatureUtils.swift in Sources */,
 				6B70DB882E2DDD9D00A371CB /* NSEvent+Extension.swift in Sources */,

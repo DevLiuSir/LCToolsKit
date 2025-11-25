@@ -13,7 +13,7 @@ public struct LCAppChecker {
     /// 检查`指定 App` 是否`正在运行`
     /// - Parameter bundleIds: 单个或多个应用的 Bundle Identifier
     /// - Returns: 如果任意指定的应用正在运行，则返回 true，否则返回 false
-    public static func isAppRunning(_ bundleIds: [String]) -> Bool {
+    public static func isAppRunning(with bundleIds: [String]) -> Bool {
         for id in bundleIds {
             if !NSRunningApplication.runningApplications(withBundleIdentifier: id).isEmpty {
                 return true     // 找到匹配的应用程序，返回 true
@@ -30,6 +30,15 @@ public struct LCAppChecker {
     public static func isAppInstalled(_ bundleId: String, strict: Bool = true) -> Bool {
         guard let url = appUrl(bundleId, strict: strict) else { return false }
         return FileManager.default.fileExists(atPath: url.path)
+    }
+    
+    
+    /// 检查指定 App 是否位于 /Applications 下
+    /// - Parameter bundleId: 应用 bundle identifier
+    /// - Returns: true 表示严格安装在 /Applications 下
+    public static func isAppInApplicationsFolder(_ bundleId: String) -> Bool {
+        guard let url = appUrl(bundleId, strict: false) else { return false }
+        return url.path.hasPrefix("/Applications")
     }
     
     
