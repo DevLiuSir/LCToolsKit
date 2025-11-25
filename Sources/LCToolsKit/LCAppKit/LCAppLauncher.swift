@@ -34,6 +34,19 @@ public class LCAppLauncher {
     }
     
     
+    /// 使用`指定应用`打开`某个文件`
+    /// - Parameters:
+    ///   - fileURL: 要打开的文件的 URL（如图片、PDF 等）
+    ///   - appPath: 用于打开文件的应用程序路径（如 /System/Applications/Preview.app）
+    public static func openFile(_ fileURL: URL, withAppAtPath appPath: String) {
+        let appURL = URL(fileURLWithPath: appPath)
+        do {
+            try NSWorkspace.shared.open([fileURL], withApplicationAt: appURL, options: [], configuration: [:])
+        } catch {
+            print("❌ 无法使用 \(appPath) 打开文件: \(error)")
+        }
+    }
+    
     
     //MARK: - 重启
     
