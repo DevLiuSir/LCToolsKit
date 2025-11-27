@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "LCToolsKit"
-  spec.version      = "1.1.9"
+  spec.version      = "1.2.0"
   spec.summary      = "LCToolsKit is a commonly used tool framework in macOS development"
   spec.description  = <<-DESC
   LCToolsKit is a commonly used tool framework in macOS development！
@@ -38,6 +38,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCAppEnvironmentDetector/*.swift'
   end
 
+  spec.subspec 'LCAppKit' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAppKit/*.swift'
+  end
+
   spec.subspec 'LCAppRatingManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppRatingManager/*.swift'
   end
@@ -48,6 +52,10 @@ Pod::Spec.new do |spec|
 
   spec.subspec 'LCAppSecurity' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppSecurity/*.swift'
+  end
+  
+  spec.subspec 'LCAsyncHelper' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCAsyncHelper/*.swift'
   end
 
   spec.subspec 'LCBaseBox' do |ss|
