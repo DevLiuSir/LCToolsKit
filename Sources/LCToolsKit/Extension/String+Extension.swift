@@ -5,9 +5,26 @@
 //
 
 import Foundation
+import Cocoa
 
 /// 为 `String` 扩展路径处理相关功能
 public extension String {
+    
+    /// 计算`当前字符串`在指定`系统字体大小`下的`尺寸`
+    ///
+    /// - Parameter fontSize: 系统字体大小
+    /// - Returns: 计算得到的 CGSize
+    ///
+    /// - 说明：
+    ///   - 如果字符串为空，则自动用空格代替，避免 size 为 0
+    ///   - 适用于单行文本尺寸计算
+    func calculatedSize(forFontSize fontSize: Int) -> CGSize {
+        let font = NSFont.systemFont(ofSize: CGFloat(fontSize))
+        let content = self.isEmpty ? " " : self
+        return content.size(withAttributes: [.font: font])
+    }
+    
+    
     
     /// 判断字符串是否包含中文字符
     ///
