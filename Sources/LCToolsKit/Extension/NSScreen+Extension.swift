@@ -88,7 +88,7 @@ public extension NSScreen {
     }
     
     
-    /// 获取鼠标当前所在的屏幕
+    /// 获取鼠标当前所在的屏幕（使用系统 API）
     ///
     /// - Returns: 返回包含鼠标位置的屏幕（NSScreen），如果鼠标不在任何屏幕上则返回 nil
     ///
@@ -101,5 +101,29 @@ public extension NSScreen {
         let mouseLocation = NSEvent.mouseLocation
         return NSScreen.screens.first { NSMouseInRect(mouseLocation, $0.frame, false) }
     }
+    
+    
+    
+    /// 获取当前鼠标所在的屏幕（手动坐标比较）
+    ///
+    /// - Returns: 鼠标所在的 NSScreen 对象，如果没有找到则返回 nil
+    ///
+    /// - 说明:
+    ///   - 使用 `NSEvent.mouseLocation` 获取鼠标在屏幕坐标系中的位置。
+    ///   - 遍历 `NSScreen.screens`，通过比较鼠标坐标与屏幕 frame 的 min/max 判断鼠标是否在屏幕内。
+    ///   - 优点：坐标可控、适合多屏幕重叠或自定义屏幕布局的场景。
+    ///   - 缺点：逻辑略长，需要自己处理浮点精度问题。
+    static func currentScreenForMouseLocation() -> NSScreen? {
+        let mouseLocation = NSEvent.mouseLocation
+        
+        // 遍历所有屏幕，找到鼠标位于其 frame 内的屏幕
+        return NSScreen.screens.first { screen in
+            let frame = screen.frame
+            return mouseLocation.x >= frame.minX &&
+            mouseLocation.x <= frame.maxX &&
+            mouseLocation.y >= frame.minY && mouseLocation.y <= frame.maxY
+        }
+    }
+    
     
 }
