@@ -51,6 +51,35 @@ public class LCAppLauncher {
     //MARK: - 重启
     
     
+    /// 重启当前应用，延迟时间（秒）
+    /// - Parameters:
+    ///   - sender: 触发重启的对象（例如按钮或菜单）
+    ///   - afterDelay: 延迟时间（秒）
+    /// - Note: 调用后应用会退出，不会返回。
+    public static func restartApp(_ sender: Any?, afterDelay seconds: TimeInterval = 0.5) -> Never {
+        let bundlePath = Bundle.main.bundlePath
+        let delay = max(0, seconds) // 避免负数
+        
+        // 使用 Process 执行 shell 命令
+        let task = Process()
+        task.executableURL = URL(fileURLWithPath: "/bin/sh")
+        task.arguments = ["-c", "sleep \(delay); open \"\(bundlePath)\""]
+        
+        do {
+            try task.run()
+        } catch {
+            print("[LCSystem] 重启应用失败: \(error)")
+        }
+        
+        // 退出应用
+        NSApp.terminate(sender)
+        
+        // 确保彻底退出
+        exit(0)
+    }
+    
+    
+    
     /// 安全重启 App，会调用 AppDelegate 的退出流程
     public static func restartAppSafely() {
         let task = Process()
