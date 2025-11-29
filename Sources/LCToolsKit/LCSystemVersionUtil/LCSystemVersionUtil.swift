@@ -11,6 +11,29 @@ import Foundation
 /// 系统版本工具类，用于进行版本范围判断
 public final class LCSystemVersionUtil {
     
+    public enum MacOS: String {
+        case mojave     // 10.14
+        case catalina   // 10.15
+        case bigSur     // 11
+        case monterey   // 12
+        case ventura    // 13
+        case sonoma     // 14
+        case sequoia    // 15
+        case tahoe      // 26
+    }
+    
+    public static var currentOS: MacOS {
+        if #available(macOS 26, *) { return .tahoe }
+        else if #available(macOS 15, *) { return .sequoia }
+        else if #available(macOS 14, *) { return .sonoma }
+        else if #available(macOS 13, *) { return .ventura }
+        else if #available(macOS 12, *) { return .monterey }
+        else if #available(macOS 11, *) { return .bigSur }
+        else if #available(macOS 10.15, *) { return .catalina }
+        else { return .mojave } // 最低版本直接用 else
+    }
+    
+    
     /// 26.0 系统及以后
     public static let is26OrLater: Bool = { if #available(macOS 26.0, *) { true } else { false } }()
     
