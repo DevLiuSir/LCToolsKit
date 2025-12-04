@@ -150,6 +150,7 @@ public extension NSWindow {
         window.standardWindowButton(.zoomButton)?.isHidden = true
         window.backgroundColor = .clear
         window.isOpaque = false
+        window.titleVisibility = .hidden
         window.isMovableByWindowBackground = true
         return window
     }

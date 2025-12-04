@@ -64,6 +64,13 @@ public class LCCustomTableRowView: NSTableRowView {
     
     // MARK: - Lifecycle
     
+    // 强制选中行始终保持高亮状态
+    // 即使窗口不在前台或表格失去焦点，文字仍保持白色
+    public override var isEmphasized: Bool {
+        get { return true }
+        set { super.isEmphasized = true }
+    }
+    
     // 添加鼠标跟踪区域
     public override func updateTrackingAreas() {
         self.trackingAreas.forEach { self.removeTrackingArea($0) }
