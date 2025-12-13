@@ -33,11 +33,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCAppearanceManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppearanceManager/*.swift'
   end
-
-  spec.subspec 'LCAppEnvironmentDetector' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppEnvironmentDetector/*.swift'
-  end
-
+  
   spec.subspec 'LCAppKit' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppKit/*.swift'
   end
