@@ -49,10 +49,6 @@ Pod::Spec.new do |spec|
   spec.subspec 'LCAppReviewManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAppReviewManager/*.swift'
   end
-
-  spec.subspec 'LCAppSecurity' do |ss|
-  ss.source_files = 'Sources/LCToolsKit/LCAppSecurity/*.swift'
-  end
   
   spec.subspec 'LCAsyncHelper' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCAsyncHelper/*.swift'
