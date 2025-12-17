@@ -13,6 +13,14 @@ public class LCWindowManager {
     /// 单例
     public static let shared = LCWindowManager()
     
+    /// 激活当前应用进程（使用 NSRunningApplication）,确保窗口置于最前，即使其他应用在前也不会被遮挡。
+    public func activateCurrentAppProcess() {
+        let pid = ProcessInfo.processInfo.processIdentifier
+        if let app = NSRunningApplication(processIdentifier: pid) {
+            app.activate(options: [.activateIgnoringOtherApps])
+        }
+    }
+    
     
     /// 设置`指定窗口`是否`置顶`
     /// - Parameters:
