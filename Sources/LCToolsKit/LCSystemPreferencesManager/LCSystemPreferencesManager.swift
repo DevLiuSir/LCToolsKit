@@ -8,6 +8,7 @@
 
 import Foundation
 import AppKit
+import ServiceManagement
 
 
 /// 用于管理系统偏好设置跳转的工具类
@@ -32,6 +33,15 @@ public class LCSystemPreferencesManager {
             }
         }
     }
+    
+    /// 使用系统官方 API 打开“登录项”设置面板（macOS 13+）
+    ///
+    /// - Note: 这是 Apple 推荐的方式，行为更稳定，也更符合审核预期
+    @available(macOS 13.0, *)
+    public static func openLoginItemsPreferencesUsingSystemAPI() {
+        SMAppService.openSystemSettingsLoginItems()
+    }
+    
     
     /// 打开系统偏好设置 -> 辅助功能
     public static func openAccessibilityPreferences() {
