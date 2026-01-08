@@ -271,14 +271,6 @@ public extension NSView {
         layer?.masksToBounds = true
     }
     
-    
-    /// 快速设置背景色
-    /// - Parameter color: 背景颜色
-    func setBackgroundColor(_ color: NSColor) {
-        wantsLayer = true
-        layer?.backgroundColor = color.cgColor
-    }
-    
 }
 
 
@@ -291,6 +283,13 @@ public extension NSView {
             $0.removeFromSuperview()
         }
     }
+    
+    /// 向视图添加子视图数组
+    /// - Parameter subviews: 要添加到自身视图的子视图数组
+    func addSubviews(_ subviews: [NSView]) {
+        subviews.forEach { addSubview($0) }
+    }
+    
 }
 
 //MARK: - 设置背景色
@@ -304,13 +303,19 @@ public extension NSView {
         }
         set {
             if let bgColor = newValue {
-                wantsLayer = true
-                layer?.backgroundColor = bgColor.cgColor
+                setBackgroundColor(bgColor)
             } else {
-                wantsLayer = false
+                // 设置为 nil 时不移除 layer，只是清除颜色
                 layer?.backgroundColor = nil
             }
         }
+    }
+    
+    /// 快速设置背景色
+    /// - Parameter color: 背景颜色
+    func setBackgroundColor(_ color: NSColor) {
+        wantsLayer = true
+        layer?.backgroundColor = color.cgColor
     }
     
 }

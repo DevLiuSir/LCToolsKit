@@ -10,6 +10,105 @@ import Cocoa
 /// 为 `String` 扩展路径处理相关功能
 public extension String {
     
+    /// 生成`指定长度`的`随机字符串`
+    /// - Parameter length: 字符串长度
+    /// - Returns: 随机字符串
+    static func randomString(length: Int) -> String {
+        let chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).compactMap { _ in chars.randomElement() })
+    }
+    
+    /// 检查字符串是否只包含数字。
+    ///
+    ///     "123".isDigits -> true
+    ///     "1.3".isDigits -> false
+    ///     "abc".isDigits -> false
+    ///
+    var isOnlyDigits: Bool {
+        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
+    }
+    
+    
+    /// 字符串的最后一个字符（如适用）。
+    ///
+    ///        "Hello".lastCharacterAsString -> Optional("o")
+    ///        "".lastCharacterAsString -> nil
+    ///
+    var lastCharacterAsString: String? {
+        guard let last else { return nil }
+        return String(last)
+    }
+    
+    
+    /// 拉丁化字符串（移除变音符号）
+    ///
+    /// 将带有变音符号的字符转换为基本的拉丁字符。
+    ///
+    /// - Note: 例如带重音的字母会转换为普通字母，但不改变字母本身
+    /// - 示例: "Hèllö Wórld!".latinized -> "Hello World!"
+    ///
+    var latinized: String {
+        return folding(options: .diacriticInsensitive, locale: Locale.current)
+    }
+    
+    
+    /// 从字符串中获取整数值（如果适用）
+    ///
+    /// - Note: 如果字符串可以转换为整数，则返回对应的 Int 值；否则返回 nil
+    /// - 示例: "101".int -> 101
+    /// - 示例: "42abc".int -> nil
+    /// - 示例: "3.14".int -> nil
+    ///
+    var int: Int? {
+        return Int(self)
+    }
+    
+    
+    /// 去除字符串`开头`和`结尾`的`空格与换行符`
+    ///
+    /// 返回一个新的字符串，该字符串移除了原始字符串两端的所有空白字符
+    /// 包括空格、制表符、换行符等。
+    ///
+    /// - 示例: "   hello  \n".trimmed -> "hello"
+    /// - 注意: 不会移除字符串中间的空格
+    ///
+    var trimmed: String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    
+    /// 按换行符分隔字符串为数组
+    ///
+    /// 将字符串按照换行符（\n）拆分为多行，返回一个字符串数组。
+    /// 空行也会被包含在数组中。
+    ///
+    /// - 示例: "Hello\ntest".lines() -> ["Hello", "test"]
+    /// - 示例: "第一行\n\n第三行".lines() -> ["第一行", "", "第三行"]
+    ///
+    /// - Returns: 按行分隔的字符串数组
+    func lines() -> [String] {
+        var result = [String]()
+        enumerateLines { line, _ in
+            result.append(line)
+        }
+        return result
+    }
+    
+    
+    /// 检查字符串是否为有效的电子邮件格式
+    ///
+    /// - Note: 此属性不会针对电子邮件服务器验证电子邮件地址。它只是尝试
+    /// 确定其格式是否适合作为电子邮件地址
+    ///
+    ///        "john@doe.com".isValidEmail -> true
+    ///
+    var isValidEmail: Bool {
+        // http://emailregex.com/
+        let regex =
+            "^(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$"
+        return range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+    }
+    
     /// 计算`当前字符串`在指定`系统字体大小`下的`尺寸`
     ///
     /// - Parameter fontSize: 系统字体大小
