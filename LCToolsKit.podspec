@@ -74,6 +74,10 @@ Pod::Spec.new do |spec|
   ss.source_files = 'Sources/LCToolsKit/LCDateManager/*.swift'
   end
 
+  spec.subspec 'LCDeviceInfoManager' do |ss|
+  ss.source_files = 'Sources/LCToolsKit/LCDeviceInfoManager/*.swift'
+  end
+  
   spec.subspec 'LCDiskVolumeManager' do |ss|
   ss.source_files = 'Sources/LCToolsKit/LCDiskVolumeManager/*.swift'
   end
