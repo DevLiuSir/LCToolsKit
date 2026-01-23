@@ -184,6 +184,14 @@ public class LCWindowManager {
 /// 用于获取屏幕点对应的窗口范围，并将窗口坐标转换为 Cocoa 可用的屏幕坐标
 extension LCWindowManager {
     
+    /// 获取当前鼠标在屏幕上的位置（CG 坐标系）
+    static func currentMouseLocation() -> NSPoint {
+        guard let event = CGEvent(source: nil) else {
+            return .zero
+        }
+        return event.location
+    }
+    
     // MARK: 窗口获取（根据屏幕坐标）
     
     /// 根据屏幕上的点获取对应窗口的 CGRect（Core Graphics 坐标系）
@@ -192,10 +200,6 @@ extension LCWindowManager {
     static func getWindowRect(at point: NSPoint) -> CGRect {
         // 获取鼠标点所在的 CGWindowID
         let windowNumber = NSWindow.windowNumber(at: point, belowWindowWithWindowNumber: 0)
-        if windowNumber == 0 {
-            return .zero
-        }
-        
         // 获取窗口信息
         guard let windowInfoArray = CGWindowListCopyWindowInfo(.optionIncludingWindow, CGWindowID(windowNumber)) as NSArray? as? [[String: Any]],
               let firstWindow = windowInfoArray.first,
