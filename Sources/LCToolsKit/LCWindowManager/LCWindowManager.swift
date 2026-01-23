@@ -31,16 +31,6 @@ public class LCWindowManager {
         window.level = isOnTop ? .mainMenu + 1 : .normal
     }
     
-    /// `隐藏`指定标准`窗口按钮`
-    /// - Parameters:
-    ///   - window: 要操作的窗口
-    ///   - types: 要隐藏的按钮类型数组
-    public static func hideStandardButtons(for window: NSWindow?, types: [NSWindow.ButtonType]) {
-        guard let window = window else { return }
-        for type in types {
-            window.standardWindowButton(type)?.isHidden = true
-        }
-    }
     
     /// `禁用`指定标准`窗口按钮`
     /// - Parameters:
@@ -53,14 +43,17 @@ public class LCWindowManager {
         }
     }
     
-    /// `显示`指定标准`窗口按钮`
+    
+    
+    /// 设置`指定窗口按钮`的`显示状态`
     /// - Parameters:
     ///   - window: 要操作的窗口
-    ///   - types: 要显示的按钮类型数组
-    public static func showStandardButtons(for window: NSWindow?, types: [NSWindow.ButtonType]) {
+    ///   - types: 按钮类型数组
+    ///   - isHidden: 是否隐藏（true 隐藏，false 显示）
+    public static func setStandardButtonsHidden(for window: NSWindow?, types: [NSWindow.ButtonType], isHidden: Bool) {
         guard let window = window else { return }
         for type in types {
-            window.standardWindowButton(type)?.isHidden = false
+            window.standardWindowButton(type)?.isHidden = isHidden
         }
     }
     
@@ -184,3 +177,65 @@ public class LCWindowManager {
     }
     
 }
+
+
+
+// MARK: - 窗口几何与坐标转换（基于 Core Graphics）
+/// 用于获取屏幕点对应的窗口范围，并将窗口坐标转换为 Cocoa 可用的屏幕坐标
+extension LCWindowManager {
+    
+    // MARK: 窗口获取（根据屏幕坐标）
+    
+    /// 根据屏幕上的点获取对应窗口的 CGRect（Core Graphics 坐标系）
+    /// - Parameter point: 屏幕上的点（全局坐标）
+    /// - Returns: 对应窗口的 CGRect，如果没有窗口返回 .zero
+    static func getWindowRect(at point: NSPoint) -> CGRect {
+        // 获取鼠标点所在的 CGWindowID
+        let windowNumber = NSWindow.windowNumber(at: point, belowWindowWithWindowNumber: 0)
+        if windowNumber == 0 {
+            return .zero
+        }
+        
+        // 获取窗口信息
+        guard let windowInfoArray = CGWindowListCopyWindowInfo(.optionIncludingWindow, CGWindowID(windowNumber)) as NSArray? as? [[String: Any]],
+              let firstWindow = windowInfoArray.first,
+              let boundsDict = firstWindow[kCGWindowBounds as String] as? [String: Any]
+        else {
+            return .zero
+        }
+        
+        var windowRect = CGRect.zero
+        CGRectMakeWithDictionaryRepresentation(boundsDict as CFDictionary, &windowRect)
+        return windowRect
+    }
+    
+    
+    // MARK: 坐标系转换（CG → Cocoa）
+    
+    /// 将 Core Graphics 坐标系的窗口矩形转换为 Cocoa 坐标系（NSRect）
+    /// - Parameter cgRect: Core Graphics 坐标系的 CGRect
+    /// - Returns: Cocoa 坐标系的 NSRect
+    static func cgWindowRectToScreenRect(_ cgRect: CGRect) -> NSRect {
+        // 获取主屏幕高度
+        var mainRect = NSScreen.main?.frame ?? .zero
+        
+        // 确保主屏幕原点为 (0,0)
+        for screen in NSScreen.screens {
+            if Int(screen.frame.origin.x) == 0 && Int(screen.frame.origin.y) == 0 {
+                mainRect = screen.frame
+                break
+            }
+        }
+        
+        // 转换坐标系
+        let rect = NSRect(
+            x: cgRect.origin.x,
+            y: mainRect.height - cgRect.height - cgRect.origin.y,
+            width: cgRect.width,
+            height: cgRect.height
+        )
+        return rect
+    }
+}
+
+
